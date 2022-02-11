@@ -1,86 +1,12 @@
-# Introduction
+# Book Ordering System
+The **Book Ordering System(BOS)** will allow users to buy, sell or rent books through the app. Users will also be able to browse and find books based on their preference. In addition, the app will allow users to have an account, track transaction records and allow debit/credit card payments. Accounts created by users can either be as buyers or sellers. The primary goal of the app is to make books more accessible and cheaper for people to use.
 
-This is a template for doing Android development using GitLab and [fastlane](https://fastlane.tools/).
-It is based on the tutorial for Android apps in general that can be found [here](https://developer.android.com/training/basics/firstapp/). 
-If you're learning Android at the same time, you can also follow along that
-tutorial and learn how to do everything all at once.
+Buyers will be able to search for a book by typing the **name**, unique **ISBN number** or even the **genre** among others. A short summary of the book along with details about the condition of the book, the author, the year they were published and general information will also be made available for the user to read before making a decision. Users can also **sell any books they own**. They are able to set their own prices and will have to provide the required information regarding the book which includes the name, condition and summary of the book.
 
-# Reference links
+A rating system will also be included in the system where any user can leave a rating or review of the book. A user’s rating who has a **verified purchase** will affect the overall rating of the book more. **This rating will be used to rank the books for customers**. The ranking of the book in the system will be set on several factors which take into account the **books’ popularity, the users’ preferences and the number of positive ratings the book gets**.
 
-- [GitLab CI Documentation](https://docs.gitlab.com/ee/ci/)
-- [Blog post: Android publishing with GitLab and fastlane](https://about.gitlab.com/2019/01/28/android-publishing-with-gitlab-and-fastlane/)
+**Different access levels** will be needed for different users, for example, buyers will not be allowed to change information regarding a book’s summary. A seller will not be able to leave a rating on a book they are selling. The system will allow buyers to know the prices of their favorite books and get informed when there are price changes with the help of a **price tracker**.
 
-You'll definitely want to read through the blog post since that walks you in detail
-through a working production configuration using this model.
+A **follow-up email** will also be sent to the customers after their purchase, asking them to leave a rating on their recent transaction which will help to create a better customer experience. The system will be **free to download on the Google Play Store** and anyone is able to download and install the application. Customers will not have to go to the library to find a book but it will be delivered to them as well as read it on the any device where the app is installed if it is made available by the seller.
 
-# Getting started
-
-First thing is to follow the [Android tutorial](https://developer.android.com/training/basics/firstapp/) and
-get Android Studio installed on your machine, so you can do development using
-the Android IDE. Other IDE options are possible, but not directly described or
-supported here. If you're using your own IDE, it should be fairly straightforward
-to convert these instructions to use with your preferred toolchain.
-
-## What's contained in this project
-
-### Android code
-
-The state of this project is as if you followed the first few steps in the linked
-[Android tutorial](https://developer.android.com/training/basics/firstapp/) and
-have created your project. You're definitely going to want to open up the
-project and change the settings to match what you plan to build. In particular,
-you're at least going to want to change the following:
-
-- Application Name: "My First App"
-- Company Domain: "example.com"
-
-### Fastlane files
-
-It also has fastlane setup per our [blog post](https://about.gitlab.com/2019/01/28/android-publishing-with-gitlab-and-fastlane/) on
-getting GitLab CI set up with fastlane. Note that you may want to update your
-fastlane bundle to the latest version; if a newer version is available, the pipeline
-job output will tell you.
-
-### Dockerfile build environment
-
-In the root there is a Dockerfile which defines a build environment which will be
-used to ensure consistent and reliable builds of your Android application using
-the correct Android SDK and other details you expect. Feel free to add any
-build-time tools or whatever else you need here.
-
-We generate this environment as needed because installing the Android SDK
-for every pipeline run would be very slow.
-
-### Gradle configuration
-
-The gradle configuration is exactly as output by Android Studio except for the
-version name being updated to 
-
-Instead of:
-
-`versionName "1.0"`
-
-It is now set to:
-
-`versionName "1.0-${System.env.VERSION_SHA}"`
-
-You'll want to update this for whatever versioning scheme you prefer.
-
-### Build configuration (`.gitlab-ci.yml`)
-
-The sample project also contains a basic `.gitlab-ci.yml` which will successfully 
-build the Android application.
-
-Note that for publishing to the test channels or production, you'll need to set
-up your secret API key. The stub code is here for that, but please see our
-[blog post](https://about.gitlab.com/2019/01/28/android-publishing-with-gitlab-and-fastlane/) for
-details on how to set this up completely. In the meantime, publishing steps will fail.
-
-The build script also handles automatic versioning by relying on the CI pipeline
-ID to generate a unique, ever increasing number. If you have a different versioning
-scheme you may want to change this.
-
-```yaml
-    - "export VERSION_CODE=$(($CI_PIPELINE_IID)) && echo $VERSION_CODE"
-    - "export VERSION_SHA=`echo ${CI_COMMIT_SHA:0:8}` && echo $VERSION_SHA"
-```
+The project will be considered successful based on three criteria, first, it gets **increasing downloads over the course of several months**. Second, we are aiming for a **4 star rating for our application when we launch and then our ratings must not fall for consecutive periods**. Lastly, we are aiming to **sell at least 10,000 books on our application** which will make our application a top choice among enthusiasts. If all the criteria meet, our project will be considered **successful**.
