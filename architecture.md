@@ -8,4 +8,4 @@ Persistence/Database - This package represents all the data we store for our app
 -This includes our fake database that we have incorporated into our project 
 
 
-[embed]file://architecture.pdf[/embed]
+[embed]https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/blob/master/architecture.pdf[/embed]
