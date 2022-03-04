@@ -13,3 +13,7 @@ The project will be considered successful based on three criteria, first, it get
 
 # Branching strategy
 The Branching strategy that we have chosen to do github flow. Our group has implemented this by having different branches that have specific uses and constantly have them updated, we do this because pushing to the server won't mess up our main code which is the master and it's better to make changes there to see how things work. Once everything runs and has no errors, we can then merge it to our master branch because one of the main processes of github flow is that everything in the master is deployable.
+
+# Worksheet 1
+
+[Link to the worksheet](https://docs.google.com/document/d/1b5qIC5rlM-qDKNSs-HqeDTQn1nqpdXgz8bW3iK1XLaY/edit?usp=sharing)
