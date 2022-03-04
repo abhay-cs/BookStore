@@ -1,0 +1,1 @@
+[embed]architecture.pdf[/embed]
