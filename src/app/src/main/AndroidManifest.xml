@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginForm">
         <activity
+            android:name=".welcome_page"
+            android:exported="false" />
+        <activity
             android:name=".signup_page"
             android:exported="true" />
         <activity
