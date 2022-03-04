@@ -1,1 +1,1 @@
-[embed]architecture.pdf[/embed]
+[embed]file://architecture.pdf[/embed]
