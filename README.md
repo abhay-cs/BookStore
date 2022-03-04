@@ -17,3 +17,6 @@ The Branching strategy that we have chosen to do github flow. Our group has impl
 # Worksheet 1
 
 [Link to the worksheet](https://docs.google.com/document/d/1b5qIC5rlM-qDKNSs-HqeDTQn1nqpdXgz8bW3iK1XLaY/edit?usp=sharing)
+
+# Architecture
+[embed]architecture.pdf[/embed]
