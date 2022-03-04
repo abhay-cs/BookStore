@@ -31,9 +31,9 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email"
         android:importantForAutofill="no"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
@@ -47,6 +47,7 @@
         android:layout_width="118dp"
         android:layout_height="59dp"
         android:background="@drawable/roundedbutton"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/login"
         android:textColor="@color/teal_700"
         android:textSize="16sp"
@@ -60,9 +61,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="302dp"
-        android:layout_height="81dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:layout_width="408dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:includeFontPadding="false"
         android:text="The Book Store"
@@ -73,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.698" />
+        app:layout_constraintVertical_bias="0.69" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
