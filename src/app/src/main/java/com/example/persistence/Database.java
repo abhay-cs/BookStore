@@ -1,3 +1,5 @@
+package com.example.persistence;
+import com.example.objects.Book;
 import java.util.ArrayList;
 
 public class Database
