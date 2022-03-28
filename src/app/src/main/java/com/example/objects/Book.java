@@ -1,33 +1,39 @@
-public class Book 
+package com.example.objects;
+
+public class Book
 {
     private String title;
-    private String yearPublished;
-    private String author;
-  
-    public Book(String title, String author, String yearPublished)
+    private int id;
+    private double price;
+    private String description;
+    private String genre;
+
+
+    public Book(int id,String title, double price,String description, String genre)
     {
+
         this.title = title;
-        this.author = author;
-        this.yearPublished = yearPublished;
+        this.id=id;
+        this.price = price;
+        this.description = description;
+        this.genre = genre;
     }
-     
+
     public String getBookTitle()
     {
         return (title);
-    }	 	
-    
-    public String getAuthor()
-    {
-        return (author);
     }
-   
-    public String getYearPublished()
-    {
-         return (yearPublished);
-    }
+
+    public int getID(){return (id);}
+
+    public double getPrice(){return (price);}
+
+    public String getDescription(){return (description);}
+
+    public String getGenre(){return (genre);}
 
     public String toString()
     {
-         return String.format("Book: %s \nYear Published: %s \nAuthor name: %s ",title, yearPublished, author);
+        return String.format("Book: %s  \nPrice : %d ",price);
     }
 }

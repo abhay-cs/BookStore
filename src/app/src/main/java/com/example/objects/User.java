@@ -1,18 +1,24 @@
+package com.example.objects;
+
 public class User
 {
-    private String firstName;
-    private String lastName;
-    private String emailID;
-    private String Password;
+    private final int userId;
+    private final String firstName;
+    private final String lastName;
+    private final String emailID;
+    private final String Password;
   
-    public User(String firstName, String lastName, String emailID, String Password)
+    public User(int userId, String firstName, String lastName, String emailID, String Password)
     {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailID = emailID;
         this.Password = Password;
     }
-     
+
+    public int getUserId() { return userId; }
+
     public String getFirstName()
     {
         return firstName;
