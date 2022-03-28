@@ -1,11 +1,15 @@
 package com.example.persistence.hsqldb;
 
+import android.sax.StartElementListener;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.example.objects.Book;
 import com.example.persistence.IBookPersistence;
@@ -38,5 +42,38 @@ public class BookPersistence implements IBookPersistence {
         }catch(final SQLException e){
             throw new PersistenceException(e);
         }
+    }
+
+    private Book extractResultSet(final ResultSet rs) throws SQLException {
+        final int id = rs.getInt("id");
+        final String title = rs.getString("title");
+        final double price = rs.getDouble("price");
+        final String description = rs.getString("description");
+        final String genre = rs.getString("genre");
+
+        return new Book(id,title,price,description,genre);
+    }
+
+    @Override
+    public List<Book> getBookList() {
+        final List<Book> bookList = new ArrayList<>();
+
+        try(final Connection c = connection()){
+            final Statement st = c.createStatement();
+            final ResultSet rs = st.executeQuery("SELECT * FROM BOOKS");
+
+            while (rs.next()){
+                final Book book = extractResultSet(rs);
+                bookList.add(book);
+            }
+            rs.close();
+            st.close();
+
+            return bookList;
+
+        }catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+
     }
 }
