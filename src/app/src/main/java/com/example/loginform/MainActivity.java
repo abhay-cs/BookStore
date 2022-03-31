@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.content.Context;
+
+import com.example.business.DatabaseHandler;
+import com.example.persistence.BooksDB;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText user_password;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginForm">
         <activity
+            android:name="com.example.view.BookListActivity"
+            android:exported="false" />
+        <activity
             android:name=".welcome_page"
             android:exported="false" />
         <activity
@@ -23,15 +26,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            </activity>
-
-
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
