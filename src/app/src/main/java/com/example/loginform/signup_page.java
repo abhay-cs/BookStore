@@ -2,11 +2,14 @@ package com.example.loginform;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.business.DatabaseHandler;
 
 public class signup_page extends AppCompatActivity {
 
@@ -15,32 +18,34 @@ public class signup_page extends AppCompatActivity {
     private EditText user_email;
     private EditText user_password;
     private Button signup;
-
+    private DatabaseHandler databaseHandler;
+    private static String DBName = "appdatabase.db";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
+
+        databaseHandler = new DatabaseHandler(DBName);
+        firstName = findViewById(R.id.editTextTextPersonNam);
+        lastName = findViewById(R.id.editTextTextPersonName2);
+        user_email = findViewById(R.id.editTextTextEmailAddress);
+        user_password = findViewById(R.id.editTextTextPassword);
+        signup = findViewById(R.id.signup_btn);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user_email.getText().length() > 0 && user_password.getText().length() > 0 && firstName.getText().length() > 0 && lastName.getText().length() > 0) {
+//                    databaseHandler.addUser(firstName.getText().toString(),lastName.getText().toString(),user_email.getText().toString(),user_password.getText().toString());
+//                    Toast.makeText(getApplicationContext(), "Added Successfully " + databaseHandler.getUsers().get(0).getFirstName(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(signup_page.this,welcome_page.class);
+                    startActivity(intent);
 //
-        // Shows error in the runtime
-//        firstName = findViewById(R.id.editTextTextPersonNam);
-//        lastName = findViewById(R.id.editTextTextPersonName2);
-//        user_email = findViewById(R.id.editTextTextEmailAddress);
-//        user_password = findViewById(R.id.editTextTextPassword);
-//
-//        signup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (user_email.getText().length() > 0 && user_password.getText().length() > 0 && firstName.getText().length() > 0 && lastName.getText().length() > 0) {
-//                    String toastMessage = "Firstname: " + firstName.getText().toString() + ", Lastname: " + lastName.getText().toString();
-//                    Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
-//                    String toastMessage2 = "Username: " + user_email.getText().toString() + ", Password: " + user_password.getText().toString();
-//                    Toast.makeText(getApplicationContext(), toastMessage2, Toast.LENGTH_SHORT).show();
-//                } else {
-//                    String toastMessage = "enter again";
-//                    Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+                } else {
+                    String toastMessage = "Invalid Input";
+                    Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
 

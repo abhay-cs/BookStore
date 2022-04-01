@@ -6,9 +6,15 @@
     tools:context=".HomeFragment"
     android:orientation="vertical">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textSize="30dp"
+        android:gravity="center"/>
     <SearchView
         android:id="@+id/searchViewBar"
+        android:layout_marginTop="40dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:queryHint="Search Here">
@@ -21,12 +27,11 @@
         android:layout_height="match_parent"
         android:columnWidth="100dp"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:scaleX="1.1"
+        android:horizontalSpacing="5dp"
+        android:layout_marginTop="80dp"
+        android:numColumns="2"
+        android:scaleX="1.0"
         android:scaleY="1.0"
         android:stretchMode="spacingWidthUniform"
-        android:translationX="-20dp"
-        android:translationY="50dp"
         android:verticalSpacing="24dp" />
 </FrameLayout>

@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private EditText user_email;
     private EditText user_password;
+    private static String DBName = "appdatabase.db";
 
     // Copy these two lines to the activities which
     // require access to the database
-    private static String DBName = "appdatabase.db";
-    private String dbPath;
 
+    private DatabaseHandler databaseHandler = new DatabaseHandler(DBName);
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,12 +44,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(user_email.getText().length() > 0 && user_password.getText().length() > 0){
-                    String toastMessage = "Username: " + user_email.getText().toString() + ", Password: " + user_password.getText().toString();
-                    Toast.makeText(getApplicationContext(),toastMessage, Toast.LENGTH_SHORT).show();
+//                    if(user_email.getText() == databaseHandler.)
 
-                    //Toast.makeText(getApplicationContext(),"Hello", Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(MainActivity.this,welcome_page.class);
-                    //startActivity(intent);
+//                    Toast.makeText(getApplicationContext(),"Hello", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this,welcome_page.class);
+                    startActivity(intent);
                 }
                 else {
                 String toastMessage = "enter again";

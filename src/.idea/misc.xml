@@ -13,13 +13,17 @@
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/drawable/ic_search.xml" value="0.206" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_book_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_grid_view.xml" value="0.1879432624113475" />
-        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_main.xml" value="0.29347826086956524" />
+        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_signup_page.xml" value="0.29347826086956524" />
+        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_start_page.xml" value="0.29347826086956524" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/activity_welcome_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/adapter_view_layout.xml" value="0.29347826086956524" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/content_grid_view.xml" value="0.1621376811594203" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/fragment_cart.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/fragment_user.xml" value="0.2607655502392344" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/fragment_watch_list.xml" value="0.25" />
+        <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/layout/linearlayout_book.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/menu/bottom_nav_bar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/menu/bottom_nav_menu.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/abhay/Desktop/book-ordering-system/src/app/src/main/res/menu/search.xml" value="0.1" />
