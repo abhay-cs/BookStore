@@ -1,7 +1,11 @@
 package com.example.business;
 
+import com.example.objects.Book;
+import com.example.objects.User;
 import com.example.persistence.BooksDB;
 import com.example.persistence.UsersDB;
+
+import java.util.ArrayList;
 
 
 public class DatabaseHandler
@@ -38,15 +42,23 @@ public class DatabaseHandler
         return false;
     }
 
-    public void getBooks()
+    public ArrayList<Book> getBooks()
     {
-        if(booksDB != null)
-            booksDB.GetBooks();
+        ArrayList<Book> books;
+        if(booksDB != null) {
+            books = booksDB.GetBooks();
+            return books;
+        }
+        return null;
     }
 
-    public void getUsers()
+    public ArrayList<User> getUsers()
     {
-        if(usersDB != null)
-            usersDB.GetUsers();
+        ArrayList<User> users;
+        if(usersDB != null) {
+            users = usersDB.GetUsers();
+            return users;
+        }
+        return null;
     }
 }

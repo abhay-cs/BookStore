@@ -11,7 +11,10 @@ import android.widget.Toast;
 import android.content.Context;
 
 import com.example.business.DatabaseHandler;
+import com.example.objects.Book;
 import com.example.persistence.BooksDB;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,10 +34,12 @@ public class MainActivity extends AppCompatActivity {
         dbPath = this.getDatabasePath(DBName).getAbsolutePath();
 
         // Make calls to the database using the dbPath
-        // DatabaseHandler databaseHandler = new DatabaseHandler(dbPath);
+        DatabaseHandler databaseHandler = new DatabaseHandler(dbPath);
 
         // Now you make all the database operations here
-        // databaseHandler.addBook()
+        databaseHandler.addBook("ABC", "Mike", 20.99, "ghkdfghsk", "Romantic");
+        ArrayList<Book> books = databaseHandler.getBooks();
+        String nString = books.get(0).getBookTitle();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     String toastMessage = "Username: " + user_email.getText().toString() + ", Password: " + user_password.getText().toString();
                     //Toast.makeText(getApplicationContext(),toastMessage, Toast.LENGTH_SHORT).show();
 
-
+                    Toast.makeText(getApplicationContext(),nString, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this,welcome_page.class);
                     startActivity(intent);
                 }
