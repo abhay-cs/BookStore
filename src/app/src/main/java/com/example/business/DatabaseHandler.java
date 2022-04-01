@@ -3,21 +3,18 @@ package com.example.business;
 import com.example.persistence.BooksDB;
 import com.example.persistence.UsersDB;
 
-import android.content.Context;
 
 public class DatabaseHandler
 {
-    private Context context;
     private BooksDB booksDB;
     private UsersDB usersDB;
-    private static String DBName = "appdatabase.db";
 
-    DatabaseHandler(Context context)
+
+    public DatabaseHandler(String dbPath)
     {
-        this.context = context;
-        booksDB = new BooksDB(context.getDatabasePath(DBName).getAbsolutePath());
+        booksDB = new BooksDB(dbPath);
         booksDB.CreateDB();
-        usersDB = new UsersDB(context.getDatabasePath(DBName).getAbsolutePath());
+        usersDB = new UsersDB(dbPath);
         usersDB.CreateDB();
     }
 

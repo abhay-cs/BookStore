@@ -19,9 +19,23 @@ public class MainActivity extends AppCompatActivity {
     private EditText user_email;
     private EditText user_password;
 
+    // Copy these two lines to the activities which
+    // require access to the database
+    private static String DBName = "appdatabase.db";
+    private String dbPath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        // Determine the path to the application database
+        dbPath = this.getDatabasePath(DBName).getAbsolutePath();
+
+        // Make calls to the database using the dbPath
+        // DatabaseHandler databaseHandler = new DatabaseHandler(dbPath);
+
+        // Now you make all the database operations here
+        // databaseHandler.addBook()
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
