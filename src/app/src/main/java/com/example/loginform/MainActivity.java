@@ -1,22 +1,16 @@
 package com.example.loginform;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.Toast;
-import android.content.Context;
 
 import com.example.business.DatabaseHandler;
 import com.example.objects.Book;
-import com.example.persistence.BooksDB;
 
 import java.util.ArrayList;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,8 +27,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
+        dbPath = this.getDatabasePath(DBName).getAbsolutePath();
+
+        DatabaseHandler databaseHandler = new DatabaseHandler(dbPath);
+        ArrayList<Book> books = databaseHandler.getBooks();
 
         login = findViewById(R.id.button);
         user_email = findViewById(R.id.userName);

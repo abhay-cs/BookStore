@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.example.objects.Book;
 
+import java.util.ArrayList;
+
 public class BooksAdapter extends BaseAdapter {
 
     private final Context mContext;
@@ -43,16 +45,14 @@ public class BooksAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.linearlayout_book, null);
         }
 
-    //    final ImageView imageView = (ImageView)convertView.findViewById(R.id.imageview_cover_art);
+        //final ImageView imageView = (ImageView)convertView.findViewById(R.id.imageview_cover_art);
         final TextView nameTextView = (TextView)convertView.findViewById(R.id.textview_book_name);
         final TextView priceTextView = (TextView)convertView.findViewById(R.id.textview_book_price);
-      //  final ImageView imageViewFavorite = (ImageView)convertView.findViewById(R.id.imageview_favorite);
-
+        //final ImageView imageViewFavorite = (ImageView)convertView.findViewById(R.id.imageview_favorite);
 
        // imageView.setImageResource(book.getImageResource());
         nameTextView.setText(book.getBookTitle());
         priceTextView.setText("$"+ book.getPrice());
-
 
         return convertView;
     }

@@ -1,12 +1,12 @@
+package com.example.persistence.sqldb;
 
-package com.example.persistence;
-
-import com.example.objects.Book;
 import com.example.objects.User;
+import com.example.persistence.IUserPersistence;
+
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UsersDB
+public class UsersDB implements IUserPersistence
 {
     private String dbPath;
     private static String TAG = "UsersDB";
@@ -20,10 +20,6 @@ public class UsersDB
     private static final String UEMAIL = "email";
     private static final String UPASSWORD = "password";
 
-    public UsersDB(String dbPath)
-    {
-        this.dbPath = dbPath;
-    }
 
     private boolean ConnectToUsersDB()
     {
@@ -152,5 +148,9 @@ public class UsersDB
         }
 
         return users;
+    }
+
+    public void setDbPath(String dbPath) {
+        this.dbPath = dbPath;
     }
 }

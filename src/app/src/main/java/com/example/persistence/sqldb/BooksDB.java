@@ -1,12 +1,14 @@
-package com.example.persistence;
+package com.example.persistence.sqldb;
 
 import com.example.objects.Book;
+import com.example.persistence.IBookPersistence;
+import com.example.persistence.sqldb.BooksDB;
 
 import java.sql.*;
 
 import java.util.ArrayList;
 
-public class BooksDB
+public class BooksDB implements IBookPersistence
 {
     private String dbPath;
     private static String TAG = "BooksDB";
@@ -21,10 +23,7 @@ public class BooksDB
     private static final String BDESCRIPTION = "description";
     private static final String BGENRE = "genre";
 
-    public BooksDB(String dbPath)
-    {
-        this.dbPath = dbPath;
-    }
+   public BooksDB(){};
 
     private boolean ConnectToBooksDB()
     {
@@ -85,7 +84,6 @@ public class BooksDB
                 //Log.e(TAG, "Unable to execute query: " + query + ". Error: " + e.getMessage());
                 return false;
             }
-
             return true;
         }
 
@@ -145,5 +143,9 @@ public class BooksDB
         }
 
         return books;
+    }
+
+    public void setDbPath(String dbPath) {
+        this.dbPath = dbPath;
     }
 }

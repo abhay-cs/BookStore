@@ -1,11 +1,13 @@
 package com.example.persistence;
 
-import java.util.List;
+import java.util.ArrayList;
 import com.example.objects.Book;
 
 public interface IBookPersistence {
-    Book insertBook(Book currentBook);
-    List <Book> getBookList();
-
+    boolean CreateDB();
+    boolean ExecuteQuery(String query);
+    boolean InsertBook(String title, String author, double price, String description, String genre);
+    ArrayList<Book> GetBooks();
+    void setDbPath(String dbPath);
 }
 

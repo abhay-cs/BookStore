@@ -2,23 +2,25 @@ package com.example.business;
 
 import com.example.objects.Book;
 import com.example.objects.User;
-import com.example.persistence.BooksDB;
-import com.example.persistence.UsersDB;
-
+import com.example.persistence.IBookPersistence;
+import com.example.persistence.IUserPersistence;
+import com.example.application.Services;
 import java.util.ArrayList;
 
 
 public class DatabaseHandler
 {
-    private BooksDB booksDB;
-    private UsersDB usersDB;
+    private IBookPersistence booksDB;
+    private IUserPersistence usersDB;
 
 
     public DatabaseHandler(String dbPath)
     {
-        booksDB = new BooksDB(dbPath);
+        booksDB = Services.getiBookPersistence();
+        usersDB = Services.getiUserPersistence();
+        booksDB.setDbPath(dbPath);
         booksDB.CreateDB();
-        usersDB = new UsersDB(dbPath);
+        usersDB.setDbPath(dbPath);
         usersDB.CreateDB();
     }
 
