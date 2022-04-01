@@ -18,7 +18,6 @@
         android:text="The Book Store"
         android:textColor="@color/black"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/userName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,5 +49,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.654" />
+
+    <Button
+        android:id="@+id/addUser"
+        android:layout_width="118dp"
+        android:layout_height="59dp"
+        android:text="Add User"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.754" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

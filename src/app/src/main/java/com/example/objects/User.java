@@ -1,5 +1,7 @@
 package com.example.objects;
 
+import java.util.ArrayList;
+
 public class User
 {
     private final int userId;
@@ -7,6 +9,8 @@ public class User
     private final String lastName;
     private final String emailID;
     private final String Password;
+    ArrayList<Book> cart;
+    ArrayList<Book> watchlist;
   
     public User(int userId, String firstName, String lastName, String emailID, String Password)
     {
@@ -17,7 +21,10 @@ public class User
         this.Password = Password;
     }
 
-    public int getUserId() { return userId; }
+    public int getUserId()
+    {
+        return userId;
+    }
 
     public String getFirstName()
     {

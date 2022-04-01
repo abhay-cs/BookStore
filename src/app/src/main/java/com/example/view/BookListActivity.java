@@ -3,6 +3,7 @@ package com.example.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import com.example.loginform.R;
 
 import com.example.loginform.R;
 
