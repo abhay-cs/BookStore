@@ -51,6 +51,17 @@ public class DatabaseHandler
         }
         return null;
     }
+    public boolean isUser(String email, String password){
+
+        ArrayList<User> users = getUsers();
+        for (int i = 0; i < users.size(); i++) {
+            if(email.equals(users.get(i).getEmailID()) && password.equals(users.get(i).getPassword())){
+                return true;
+            }
+
+        }
+        return false;
+    }
 
     public ArrayList<User> getUsers()
     {

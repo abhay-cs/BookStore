@@ -20,12 +20,13 @@ public class signup_page extends AppCompatActivity {
     private Button signup;
     private DatabaseHandler databaseHandler;
     private static String DBName = "appdatabase.db";
+    private String dbPath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
 
-        databaseHandler = new DatabaseHandler(DBName);
+
         firstName = findViewById(R.id.editTextTextPersonNam);
         lastName = findViewById(R.id.editTextTextPersonName2);
         user_email = findViewById(R.id.editTextTextEmailAddress);
@@ -35,9 +36,16 @@ public class signup_page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (user_email.getText().length() > 0 && user_password.getText().length() > 0 && firstName.getText().length() > 0 && lastName.getText().length() > 0) {
-//                    databaseHandler.addUser(firstName.getText().toString(),lastName.getText().toString(),user_email.getText().toString(),user_password.getText().toString());
-//                    Toast.makeText(getApplicationContext(), "Added Successfully " + databaseHandler.getUsers().get(0).getFirstName(), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(signup_page.this,welcome_page.class);
+                    dbPath = getApplicationContext().getDatabasePath(DBName).getAbsolutePath();
+
+                    databaseHandler = new DatabaseHandler(dbPath);
+                    databaseHandler.addUser(firstName.getText().toString(),
+                            lastName.getText().toString(),
+                            user_email.getText().toString(),
+                            user_password.getText().toString()
+                    );
+                    Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(signup_page.this,MainActivity.class);
                     startActivity(intent);
 //
                 } else {

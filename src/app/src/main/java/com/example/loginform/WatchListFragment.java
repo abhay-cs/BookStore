@@ -27,8 +27,7 @@ public class WatchListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_watch_list,container,false);
 
         // sample books added
-        String[] listItems = {"Harry potter", "Game of thrones","New Book 1","Another One",
-                             "something book", "some new book"};
+        String[] listItems = {"Harry potter", "Game of thrones","Cosmos","Big Bang"};
 
         ListView listView = (ListView) view.findViewById(R.id.watchListView);
 

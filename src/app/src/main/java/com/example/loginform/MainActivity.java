@@ -13,6 +13,7 @@ import android.content.Context;
 
 import com.example.business.DatabaseHandler;
 import com.example.objects.Book;
+import com.example.objects.User;
 import com.example.persistence.BooksDB;
 
 import java.util.ArrayList;
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText user_email;
     private EditText user_password;
     private static String DBName = "appdatabase.db";
-
+    private String dbPath;
+    private DatabaseHandler databaseHandler;
+    private ArrayList<User> userList;
     // Copy these two lines to the activities which
     // require access to the database
 
-    private DatabaseHandler databaseHandler = new DatabaseHandler(DBName);
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,11 +47,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(user_email.getText().length() > 0 && user_password.getText().length() > 0){
-//                    if(user_email.getText() == databaseHandler.)
 
-//                    Toast.makeText(getApplicationContext(),"Hello", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this,welcome_page.class);
-                    startActivity(intent);
+                    dbPath = getApplicationContext().getDatabasePath(DBName).getAbsolutePath();
+                    databaseHandler = new DatabaseHandler(dbPath);
+                    if(databaseHandler.isUser(user_email.getText().toString(), user_password.getText().toString())){
+                        Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this,welcome_page.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Invalid User", Toast.LENGTH_SHORT).show();
+                    }
+
+
+//
+
                 }
                 else {
                 String toastMessage = "enter again";
