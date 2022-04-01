@@ -10,13 +10,14 @@ public class DatabaseHandler
     private Context context;
     private BooksDB booksDB;
     private UsersDB usersDB;
+    private static String DBName = "appdatabase.db";
 
     DatabaseHandler(Context context)
     {
         this.context = context;
-        booksDB = new BooksDB(context);
+        booksDB = new BooksDB(context.getDatabasePath(DBName).getAbsolutePath());
         booksDB.CreateDB();
-        usersDB = new UsersDB(context);
+        usersDB = new UsersDB(context.getDatabasePath(DBName).getAbsolutePath());
         usersDB.CreateDB();
     }
 

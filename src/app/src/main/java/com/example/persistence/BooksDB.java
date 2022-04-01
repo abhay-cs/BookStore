@@ -1,8 +1,5 @@
 package com.example.persistence;
 
-import android.content.Context;
-import android.util.Log;
-
 import com.example.objects.Book;
 
 import java.sql.*;
@@ -11,10 +8,9 @@ import java.util.ArrayList;
 
 public class BooksDB
 {
-    private Context context;
+    private String dbPath;
     private static String TAG = "BooksDB";
     private Connection conn;
-    private static String DBName = "appdatabase.db";
 
     // Table Schema
     private static final String TABLE1 = "books";
@@ -25,20 +21,20 @@ public class BooksDB
     private static final String BDESCRIPTION = "description";
     private static final String BGENRE = "genre";
 
-    public BooksDB(Context context)
+    public BooksDB(String dbPath)
     {
-        this.context = context;
+        this.dbPath = dbPath;
     }
 
     private boolean ConnectToBooksDB()
     {
-        String dbPath = context.getDatabasePath(DBName).getAbsolutePath();
+        //String dbPath = context.getDatabasePath(DBName).getAbsolutePath();
 
         try {
             DriverManager.registerDriver((Driver) Class.forName("org.sqldroid.SQLDroidDriver").newInstance());
             conn = DriverManager.getConnection("jdbc:sqldroid:" + dbPath);
         } catch (Exception e){
-            Log.e(TAG, "Unable to connect. Error: " + e.getMessage());
+            //Log.e(TAG, "Unable to connect. Error: " + e.getMessage());
             return false;
         }
 
@@ -66,7 +62,7 @@ public class BooksDB
                 }
                 return true;
             } catch (Exception e) {
-                Log.e(TAG, "Unable to check if books table exists. Error: " + e.getMessage());
+                //Log.e(TAG, "Unable to check if books table exists. Error: " + e.getMessage());
                 return false;
             }
         }
@@ -86,7 +82,7 @@ public class BooksDB
             }
             catch (Exception e)
             {
-                Log.e(TAG, "Unable to execute query: " + query + ". Error: " + e.getMessage());
+                //Log.e(TAG, "Unable to execute query: " + query + ". Error: " + e.getMessage());
                 return false;
             }
 
@@ -110,7 +106,7 @@ public class BooksDB
                 stmt.close();
                 conn.close();
             } catch (Exception e) {
-                Log.e(TAG, "Unable to insert data. Error: " + e.getMessage());
+                //Log.e(TAG, "Unable to insert data. Error: " + e.getMessage());
                 return false;
             }
 
@@ -136,14 +132,14 @@ public class BooksDB
                             rs.getDouble(BPRICE),
                             rs.getString(BDESCRIPTION),
                             rs.getString(BGENRE));
-                    Log.i(TAG, book.getBookTitle());
+                    //Log.i(TAG, book.getBookTitle());
                     books.add(book);
                 }
 
                 stmt.close();
 
             } catch (Exception e) {
-                Log.e(TAG, "Unable to get books. Error: " + e.getMessage());
+                //Log.e(TAG, "Unable to get books. Error: " + e.getMessage());
                 return null;
             }
         }
