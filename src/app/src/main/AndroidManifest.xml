@@ -11,7 +11,7 @@
         android:theme="@style/Theme.LoginForm">
         <activity
             android:name=".welcome_page"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".signup_page"
             android:exported="true" />
@@ -23,15 +23,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            </activity>
-
-
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
