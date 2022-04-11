@@ -2,6 +2,7 @@ package com.example.business;
 
 import com.example.objects.Book;
 import com.example.objects.User;
+
 import com.example.persistence.BooksDB;
 import com.example.persistence.UsersDB;
 
@@ -58,7 +59,6 @@ public class DatabaseHandler
             if(email.equals(users.get(i).getEmailID()) && password.equals(users.get(i).getPassword())){
                 return true;
             }
-
         }
         return false;
     }
