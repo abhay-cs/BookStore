@@ -3,6 +3,8 @@ package com.example.loginform;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 import com.example.business.DatabaseHandler;
@@ -36,6 +38,17 @@ public class SearchResultActivity extends AppCompatActivity {
 
             BooksAdapter booksAdapter = new BooksAdapter(this.getApplicationContext(), books);
             gridView.setAdapter(booksAdapter);
+
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view,
+                                        int position, long id) {
+
+                    Intent intent = new Intent(getApplicationContext(),BookPage.class);
+                    intent.putExtra("Book name", "some");
+                    startActivity(intent);
+                }
+            });
         } else {
             Toast.makeText(getApplicationContext(), "No books found", Toast.LENGTH_LONG).show();
         }

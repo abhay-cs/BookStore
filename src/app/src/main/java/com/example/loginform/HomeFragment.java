@@ -63,7 +63,6 @@ public class HomeFragment extends Fragment {
         gridView.setAdapter(booksAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -71,7 +70,6 @@ public class HomeFragment extends Fragment {
                 Intent intent = new Intent(getActivity(),BookPage.class);
                 intent.putExtra("Book name", "some");
                 startActivity(intent);
-
             }
         });
 
@@ -82,7 +80,6 @@ public class HomeFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 if(query != null){
-
                     //Searching for user input in database
                     Intent showResults = new Intent(HomeFragment.this.getActivity(), SearchResultActivity.class);
                     showResults.putExtra("Search Value", query);
