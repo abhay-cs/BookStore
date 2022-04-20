@@ -2,21 +2,24 @@ package com.example.loginform;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SearchView;
+
 import android.widget.Toast;
 
+import com.example.business.DatabaseHandler;
 import com.example.objects.Book;
 
-public class HomeFragment extends Fragment {
 
+public class HomeFragment extends Fragment {
+    private static String DBName = "appdatabase.db";
+    private String dbPath;
+    private DatabaseHandler databaseHandler;
 
     private Book[] books = {new Book(0,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
             new Book(1,"Harry Potter 2", "Walter",5.99, "sample","Fiction"),
@@ -35,19 +38,27 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {
         // Required empty public constructor
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //getting path name of table and create it if not already exists
+       dbPath = getContext().getDatabasePath(DBName).getAbsolutePath();
+       databaseHandler = new DatabaseHandler(dbPath);
+//       databaseHandler.emptyBooks();
+
+        //adding lists of books in database
+        if (databaseHandler.addListBook(books)){
+            Toast.makeText(getActivity(), "Successfully added", Toast.LENGTH_LONG).show();
+        }
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         SearchView searchView = (SearchView)view.findViewById(R.id.searchViewBar);
+
         //GridView //
         GridView gridView = (GridView)view.findViewById(R.id.gridview);
-
         BooksAdapter booksAdapter = new BooksAdapter( this.getContext(), books);
         gridView.setAdapter(booksAdapter);
 
@@ -70,19 +81,16 @@ public class HomeFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-
                 if(query != null){
-                    // this is the search item output
-                    Toast.makeText(getActivity(),"No books found",Toast.LENGTH_LONG).show();
-                    // search up the query agaisnt DB
-                    // fiction action scifi or harry potter
-                    // show up a list view -- > template
+
+                    //Searching for user input in database
+                    Intent showResults = new Intent(HomeFragment.this.getActivity(), SearchResultActivity.class);
+                    showResults.putExtra("Search Value", query);
+                    startActivity(showResults);
                 }
-
-
                 return false;
             }
-        // a
+
             @Override
             public boolean onQueryTextChange(String s) {
                 return false;
@@ -91,4 +99,5 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
 }

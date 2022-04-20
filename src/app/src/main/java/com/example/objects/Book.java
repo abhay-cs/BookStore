@@ -52,6 +52,7 @@ public class Book
 
     public String toString()
     {
-        return String.format("Book: %s  \nPrice : %d ",price);
+        String temp = "Book = " + title ;
+        return temp ;
     }
 }

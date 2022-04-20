@@ -46,6 +46,8 @@ public class signup_page extends AppCompatActivity {
                             user_password.getText().toString()
                     );
                     Toast.makeText(getApplicationContext(), "Register Success", Toast.LENGTH_SHORT).show();
+
+                    //switch to Main activity page
                     Intent intent = new Intent(signup_page.this,MainActivity.class);
                     startActivity(intent);
 //

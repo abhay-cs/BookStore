@@ -16,6 +16,9 @@
             android:name=".BookPage"
             android:exported="true" />
         <activity
+            android:name=".SearchResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".welcome_page"
             android:exported="true" />
         <activity

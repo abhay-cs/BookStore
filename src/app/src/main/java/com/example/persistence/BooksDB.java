@@ -93,7 +93,7 @@ public class BooksDB
     }
 
     public boolean InsertBook(String title, String author, double price, String description, String genre) {
-        String newBook = "INSERT INTO " + TABLE1 + " (" + BNAME + ", " + BAUTHOR + ", " + BPRICE + ", " + BDESCRIPTION + ", " + BGENRE + ") VALUES (?, ?, ?, ?, ?)";
+        String newBook = "INSERT INTO  " + TABLE1 + " (" + BNAME + ", " + BAUTHOR + ", " + BPRICE + ", " + BDESCRIPTION + ", " + BGENRE + ") VALUES (?, ?, ?, ?, ?)";
         if (ConnectToBooksDB()) {
             try {
                 PreparedStatement stmt = conn.prepareStatement(newBook);
@@ -109,10 +109,8 @@ public class BooksDB
                 //Log.e(TAG, "Unable to insert data. Error: " + e.getMessage());
                 return false;
             }
-
             return true;
         }
-
         return false;
     }
 
@@ -146,4 +144,19 @@ public class BooksDB
 
         return books;
     }
+
+    public void deleteAllBooks() {
+        if (ConnectToBooksDB()) {
+            try {
+                final PreparedStatement sc = conn.prepareStatement("DELETE FROM books;");
+                sc.executeUpdate();
+                sc.close();
+                conn.close();
+            } catch (final SQLException e) {
+//                throw new PersistenceException(e);
+            }
+
+        }
+    }
+
 }
