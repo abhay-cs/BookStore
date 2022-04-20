@@ -31,6 +31,7 @@ public class signup_page extends AppCompatActivity {
         lastName = findViewById(R.id.editTextTextPersonName2);
         user_email = findViewById(R.id.editTextTextEmailAddress);
         user_password = findViewById(R.id.editTextTextPassword);
+
         signup = findViewById(R.id.signup_btn);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +56,6 @@ public class signup_page extends AppCompatActivity {
             }
         });
     }
+
 }
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -37,6 +38,8 @@ public class WatchListFragment extends Fragment {
                 listItems
         );
         listView.setAdapter(listViewAdapter);
+
+
 
         return view;
     }
