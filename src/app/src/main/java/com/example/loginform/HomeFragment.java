@@ -15,27 +15,28 @@ import android.widget.Toast;
 import com.example.business.DatabaseHandler;
 import com.example.objects.Book;
 
+import java.util.ArrayList;
+
 
 public class HomeFragment extends Fragment {
     private static String DBName = "appdatabase.db";
     private String dbPath;
     private DatabaseHandler databaseHandler;
 
-    private Book[] books = {new Book(0,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
-            new Book(1,"Harry Potter 2", "Walter",5.99, "sample","Fiction"),
-            new Book(0,"Harry Potter 3", "Jk",12.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 4", "Jk",15.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 5", "Jk",5.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 5", "Jk",787.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 6", "Jk",234.22, "Goof Book","Horror"),
-            new Book(1,"Harry Potter 7", "Walter",524.99, "sample","Fiction"),
-            new Book(1,"Harry Potter 8", "Walter",524.99, "sample","Fiction"),
-            new Book(0,"Harry Potter 9", "Jk",74.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 10", "Jk",79.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 11", "Jk",74.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 12", "Jk",71.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 13", "Jk",790.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 14", "Jk",79.22, "Goof Book","Horror")};
+    private Book[] books = {new Book(1,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
+            new Book(2,"Harry Potter 2", "Walter",5.99, "sample","Fiction"),
+            new Book(3,"Harry Potter 3", "Jk",12.22, "Goof Book","Horror"),
+            new Book(4,"Harry Potter 4", "Jk",15.22, "Goof Book","Horror"),
+            new Book(5,"Harry Potter 5", "Jk",5.22, "Goof Book","Horror"),
+            new Book(6,"Harry Potter 6", "Jk",787.22, "Goof Book","Horror"),
+            new Book(7,"Harry Potter 7", "Jk",234.22, "Goof Book","Horror"),
+            new Book(8,"Harry Potter 8", "Walter",524.99, "sample","Fiction"),
+            new Book(9,"Harry Potter 9", "Walter",524.99, "sample","Fiction"),
+            new Book(10,"Harry Potter 10", "Jk",74.22, "Goof Book","Horror"),
+            new Book(11,"Harry Potter 11", "Jk",79.22, "Goof Book","Horror"),
+            new Book(12,"Harry Potter 12", "Jk",74.22, "Goof Book","Horror"),
+            new Book(13,"Harry Potter 13", "Jk",71.22, "Goof Book","Horror"),
+            new Book(14,"Harry Potter 14", "Jk",790.22, "Goof Book","Horror")};
 
     public HomeFragment() {
         // Required empty public constructor
@@ -50,32 +51,34 @@ public class HomeFragment extends Fragment {
        databaseHandler = new DatabaseHandler(dbPath);
 //       databaseHandler.emptyBooks();
 
-        //adding lists of books in database
+//        adding lists of books in database
         if (databaseHandler.addListBook(books)){
             Toast.makeText(getActivity(), "Successfully added", Toast.LENGTH_LONG).show();
         }
+
+        ArrayList <Book> books = databaseHandler.getBooks();
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         SearchView searchView = (SearchView)view.findViewById(R.id.searchViewBar);
 
         //GridView //
         GridView gridView = (GridView)view.findViewById(R.id.gridview);
-        BooksAdapter booksAdapter = new BooksAdapter( this.getContext(), books);
+        Book[] bookArray = databaseHandler.toArray(books);
+        BooksAdapter booksAdapter = new BooksAdapter( this.getContext(), bookArray);
         gridView.setAdapter(booksAdapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
+                Book book = bookArray[position];
+                String bookID = "" + book.getID();
 
                 Intent intent = new Intent(getActivity(),BookPage.class);
-                intent.putExtra("Book name", "some");
+                intent.putExtra("Book name", bookID);
                 startActivity(intent);
             }
         });
-
-
-
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
