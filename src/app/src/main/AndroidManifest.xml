@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginForm">
         <activity
+            android:name=".BuyPage"
+            android:exported="true" />
+        <activity
+            android:name=".BookPage"
+            android:exported="true" />
+        <activity
             android:name=".welcome_page"
             android:exported="true" />
         <activity
@@ -26,7 +32,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

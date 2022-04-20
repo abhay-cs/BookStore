@@ -18,6 +18,9 @@ public class CartFragment extends Fragment {
 
     private Book[] cartItems = {new Book(0,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
                                 new Book(0,"Harry Potter 12", "Jk",71.22, "Goof Book","Horror"),
+                                new Book(0,"Harry Potter 13", "Jk",790.22, "Goof Book","Horror"),
+                                new Book(0,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
+                                new Book(0,"Harry Potter 12", "Jk",71.22, "Goof Book","Horror"),
                                 new Book(0,"Harry Potter 13", "Jk",790.22, "Goof Book","Horror")};
     public CartFragment() {
         // Required empty public constructor
