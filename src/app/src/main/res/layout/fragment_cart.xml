@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".CartFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
     <TextView
         android:layout_width="match_parent"
@@ -25,4 +25,5 @@
         android:scaleX="1.0"
         android:scaleY="1.0"
         android:verticalSpacing="24dp" />
+
 </FrameLayout>

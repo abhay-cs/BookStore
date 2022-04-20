@@ -1,5 +1,6 @@
 package com.example.loginform;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -49,6 +51,23 @@ public class HomeFragment extends Fragment {
         BooksAdapter booksAdapter = new BooksAdapter( this.getContext(), books);
         gridView.setAdapter(booksAdapter);
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+
+                Intent intent = new Intent(getActivity(),BookPage.class);
+                intent.putExtra("Book name", "some");
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -56,6 +75,9 @@ public class HomeFragment extends Fragment {
                 if(query != null){
                     // this is the search item output
                     Toast.makeText(getActivity(),"No books found",Toast.LENGTH_LONG).show();
+                    // search up the query agaisnt DB
+                    // fiction action scifi or harry potter
+                    // show up a list view -- > template
                 }
 
 

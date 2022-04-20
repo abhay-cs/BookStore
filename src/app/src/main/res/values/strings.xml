@@ -25,4 +25,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_grid_view">GridView</string>
     <string name="the_book_store">The Book Store</string>
+    <string name="book_desciption">
+        lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems lorem sipsum is a sample text adn seems a good choice to test apps.lorem sipsum is a sample text adn seems
+    </string>
 </resources>
