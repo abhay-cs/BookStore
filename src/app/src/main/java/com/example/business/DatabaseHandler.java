@@ -134,4 +134,16 @@ public class DatabaseHandler
         booksDB.deleteAllBooks();
     }
 
+    public Book getById(String id){
+        int bId = Integer.parseInt(id);
+        Book temp = null;
+
+        ArrayList <Book> bookList = getBooks();
+        for (int i = 0; i< bookList.size();i++){
+            if (bId == bookList.get(i).getID()){
+                temp =  bookList.get(i);
+            }
+        }
+        return temp;
+    }
 }

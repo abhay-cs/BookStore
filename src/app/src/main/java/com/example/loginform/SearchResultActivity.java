@@ -44,8 +44,11 @@ public class SearchResultActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view,
                                         int position, long id) {
 
+                    Book book = books[position];
+                    String bookID = "" + book.getID();
+
                     Intent intent = new Intent(getApplicationContext(),BookPage.class);
-                    intent.putExtra("Book name", "some");
+                    intent.putExtra("Book name", bookID);
                     startActivity(intent);
                 }
             });
