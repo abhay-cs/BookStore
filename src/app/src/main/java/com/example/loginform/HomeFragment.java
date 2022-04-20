@@ -34,7 +34,8 @@ public class HomeFragment extends Fragment {
             new Book(0,"Harry Potter 10", "Jk",79.22, "Goof Book","Horror"),
             new Book(0,"Harry Potter 11", "Jk",74.22, "Goof Book","Horror"),
             new Book(0,"Harry Potter 12", "Jk",71.22, "Goof Book","Horror"),
-            new Book(0,"Harry Potter 13", "Jk",790.22, "Goof Book","Horror"),};
+            new Book(0,"Harry Potter 13", "Jk",790.22, "Goof Book","Horror"),
+            new Book(0,"Harry Potter 14", "Jk",79.22, "Goof Book","Horror")};
 
     public HomeFragment() {
         // Required empty public constructor
