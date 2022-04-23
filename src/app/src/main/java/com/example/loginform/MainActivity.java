@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(user_email.getText().length() > 0 && user_password.getText().length() > 0){
 
-                    dbPath = getApplicationContext().getDatabasePath(DBName).getAbsolutePath();
+                    dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
                     databaseHandler = new DatabaseHandler(dbPath);
                     if(databaseHandler.isUser(user_email.getText().toString(), user_password.getText().toString())){
                         Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_SHORT).show();
