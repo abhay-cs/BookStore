@@ -8,25 +8,32 @@
 
     <Button
         android:id="@+id/buybutton"
-        android:layout_width="117dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="158dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="206dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="246dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="60dp"
         android:text="Buy"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ListView
-        android:id="@+id/final_item_list"
-        android:layout_width="381dp"
-        android:layout_height="567dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/buybutton"
+    <GridView
+        android:id="@+id/gridviewBuyPage"
+        android:layout_width="599dp"
+        android:layout_height="780dp"
+        android:columnWidth="100dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="2"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
+        android:stretchMode="spacingWidthUniform"
+        android:verticalSpacing="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

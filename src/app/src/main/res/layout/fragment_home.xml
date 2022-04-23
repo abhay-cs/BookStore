@@ -31,7 +31,7 @@
         android:dividerHeight="2dp" />
     
     <GridView
-        android:id="@+id/gridview"
+        android:id="@+id/gridviewBuyPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="100dp"

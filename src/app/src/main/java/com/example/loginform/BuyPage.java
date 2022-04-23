@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
+
+import com.example.objects.Book;
 
 public class BuyPage extends AppCompatActivity {
 
@@ -22,11 +25,11 @@ public class BuyPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_page);
 
-        ListView item_list = findViewById(R.id.final_item_list);
-        Button buy_button = findViewById(R.id.buybutton);
-        ArrayAdapter<String> item_array = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                tutorials);
-        item_list.setAdapter(item_array);
+        GridView gridView = findViewById(R.id.gridviewBuyPage);
+//        Book[] books = databaseHandler.toArray(bookList);
+
+//        BooksAdapter booksAdapter = new BooksAdapter(this.getApplicationContext(), books);
+//        gridView.setAdapter(booksAdapter);
 
 
     }

@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
         SearchView searchView = (SearchView)view.findViewById(R.id.searchViewBar);
 
         //GridView //
-        GridView gridView = (GridView)view.findViewById(R.id.gridview);
+        GridView gridView = (GridView)view.findViewById(R.id.gridviewBuyPage);
         Book[] bookArray = databaseHandler.toArray(books);
         BooksAdapter booksAdapter = new BooksAdapter( this.getContext(), bookArray);
         gridView.setAdapter(booksAdapter);
