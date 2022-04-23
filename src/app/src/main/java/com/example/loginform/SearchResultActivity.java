@@ -33,7 +33,7 @@ public class SearchResultActivity extends AppCompatActivity {
 
         if (bookList.size() > 0) {
             //GridView //
-            GridView gridView = findViewById(R.id.gridview);
+            GridView gridView = findViewById(R.id.gridviewBuyPage);
             Book[] books = databaseHandler.toArray(bookList);
 
             BooksAdapter booksAdapter = new BooksAdapter(this.getApplicationContext(), books);
