@@ -47,5 +47,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     // Add this to enable database
-    implementation 'org.sqldroid:sqldroid:1.0.3'
+    implementation group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
 }

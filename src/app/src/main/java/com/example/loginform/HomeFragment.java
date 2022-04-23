@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         //getting path name of table and create it if not already exists
-       dbPath = getContext().getDatabasePath(DBName).getAbsolutePath();
+        dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
        databaseHandler = new DatabaseHandler(dbPath);
 //       databaseHandler.emptyBooks();
 

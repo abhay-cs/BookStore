@@ -9,8 +9,10 @@ public class User
     private final String lastName;
     private final String emailID;
     private final String Password;
-    ArrayList<Book> cart;
-    ArrayList<Book> watchlist;
+
+    private Cart cart;
+    private Watchlist watchlist;
+    private ArrayList<String> recommendation;
   
     public User(int userId, String firstName, String lastName, String emailID, String Password)
     {
@@ -19,6 +21,40 @@ public class User
         this.lastName = lastName;
         this.emailID = emailID;
         this.Password = Password;
+        this.cart = new Cart();
+        this.watchlist = new Watchlist();
+    }
+
+    public void setRecommendation(String rec1, String rec2, String rec3)
+    {
+        this.recommendation.add(rec1);
+        this.recommendation.add(rec2);
+        this.recommendation.add(rec3);
+    }
+
+    public void addToWatchlist(Book newBook)
+    {
+        this.watchlist.addBook(newBook);
+    }
+
+    public void addToCart(Book newBook)
+    {
+        this.cart.addBook(newBook);
+    }
+
+    public ArrayList<String> getRecommendation()
+    {
+        return recommendation;
+    }
+
+    public Cart getCart()
+    {
+        return cart;
+    }
+
+    public Watchlist getWatchlist()
+    {
+        return watchlist;
     }
 
     public int getUserId()

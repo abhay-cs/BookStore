@@ -26,7 +26,7 @@ public class SearchResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String userInput = intent.getExtras().getString("Search Value");
 
-        dbPath = getDatabasePath(DBName).getAbsolutePath();
+        dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
         databaseHandler = new DatabaseHandler(dbPath);
 
         bookList = databaseHandler.search(userInput);

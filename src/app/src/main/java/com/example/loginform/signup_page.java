@@ -37,7 +37,7 @@ public class signup_page extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (user_email.getText().length() > 0 && user_password.getText().length() > 0 && firstName.getText().length() > 0 && lastName.getText().length() > 0) {
-                    dbPath = getApplicationContext().getDatabasePath(DBName).getAbsolutePath();
+                    dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
 
                     databaseHandler = new DatabaseHandler(dbPath);
                     databaseHandler.addUser(firstName.getText().toString(),

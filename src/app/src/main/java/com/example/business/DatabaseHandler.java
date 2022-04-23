@@ -30,6 +30,13 @@ public class DatabaseHandler
         return flag;
     }
 
+    public boolean ResetBooksDB() {
+        return booksDB.ResetDB();
+    }
+
+    public boolean ResetUsersDB() {
+        return usersDB.ResetDB();
+    }
     public boolean addBookHelper(Book book){
 
         return addBook(book.getBookTitle(),book.getAuthor(),book.getPrice(),book.getDescription(),book.getGenre());

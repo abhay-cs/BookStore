@@ -1,2 +1,6 @@
-package com.example.loginform;public class IntegrationTest {
+package com.example.loginform;
+
+public class IntegrationTest
+{
+
 }

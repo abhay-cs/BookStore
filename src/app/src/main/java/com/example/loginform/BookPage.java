@@ -21,7 +21,7 @@ public class BookPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_page);
 
-        dbPath = getDatabasePath(DBName).getAbsolutePath();
+        dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
         databaseHandler = new DatabaseHandler(dbPath);
 
         Intent intent = getIntent();
