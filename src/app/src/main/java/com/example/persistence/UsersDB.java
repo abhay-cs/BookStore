@@ -49,20 +49,6 @@ public class UsersDB
         return ExecuteQuery(dbSchema);
     }
 
-    private boolean tableExist(Connection conn, String tableName) throws SQLException {
-        boolean tExists = false;
-        try (ResultSet rs = conn.getMetaData().getTables(null, null, tableName, null)) {
-            while (rs.next()) {
-                String tName = rs.getString("TABLE_NAME");
-                if (tName.toLowerCase(Locale.ROOT) != null && tName.equals(tableName.toLowerCase(Locale.ROOT))) {
-                    tExists = true;
-                    break;
-                }
-            }
-        }
-        return tExists;
-    }
-
     public boolean ResetDB() {
         if (ConnectToUsersDB()) {
             try {
