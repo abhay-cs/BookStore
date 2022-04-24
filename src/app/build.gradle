@@ -6,7 +6,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.loginform"
+        applicationId "com.uom.thebookstore"
         minSdk 23
         targetSdk 32
         versionCode 1

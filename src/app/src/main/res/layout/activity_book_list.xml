@@ -5,7 +5,7 @@
     android:id="@+id/book_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.view.BookListActivity">
+    tools:context="com.uom.thebookstore.view.BookListActivity">
 
     <ListView
         android:layout_width="409dp"

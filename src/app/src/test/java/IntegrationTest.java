@@ -1,18 +1,12 @@
-import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
-
 import android.app.Instrumentation;
-import android.content.Context;
 
-import com.example.business.DatabaseHandler;
-import com.example.objects.Book;
-import com.example.objects.User;
+import com.uom.thebookstore.business.DatabaseHandler;
+import com.uom.thebookstore.objects.Book;
+import com.uom.thebookstore.objects.User;
 
 import org.junit.Test;
-import java.util.ArrayList;
-import static org.junit.Assert.assertEquals;
 
-import androidx.test.core.app.ApplicationProvider;
-import androidx.test.platform.app.InstrumentationRegistry;
+import static org.junit.Assert.assertEquals;
 
 public class IntegrationTest extends Instrumentation{
     private static String DBName = "appdatabase.db";

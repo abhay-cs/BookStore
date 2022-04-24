@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.loginform">
+    package="com.uom.thebookstore.ui">
 
     <application
         android:allowBackup="true"
@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginForm">
         <activity
-            android:name=".BuyPage"
+            android:name="com.uom.thebookstore.ui.BuyPage"
             android:exported="true" />
         <activity
-            android:name=".BookPage"
+            android:name="com.uom.thebookstore.ui.BookPage"
             android:exported="true" />
         <activity
-            android:name=".SearchResultActivity"
+            android:name="com.uom.thebookstore.ui.SearchResultActivity"
             android:exported="false" />
         <activity
-            android:name=".welcome_page"
+            android:name="com.uom.thebookstore.ui.welcome_page"
             android:exported="true" />
         <activity
-            android:name=".signup_page"
+            android:name="com.uom.thebookstore.ui.signup_page"
             android:exported="true" />
         <activity
-            android:name=".start_page"
+            android:name="com.uom.thebookstore.ui.start_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.uom.thebookstore.ui.MainActivity"
             android:exported="true" />
 
         <meta-data
