@@ -2,7 +2,6 @@ package com.example.persistence;
 
 import android.util.Log;
 
-import com.example.loginform.BuildConfig;
 import com.example.objects.Book;
 
 import java.sql.*;
@@ -105,16 +104,18 @@ public class BooksDB
         return false;
     }
 
-    public boolean InsertBook(String title, String author, double price, String description, String genre) {
-        String newBook = "INSERT INTO " + TABLE1 + " (" + BNAME + ", " + BAUTHOR + ", " + BPRICE + ", " + BDESCRIPTION + ", " + BGENRE + ") VALUES (?, ?, ?, ?, ?)";
+
+    public boolean InsertBook(int id, String title, String author, double price, String description, String genre) {
+        String newBook = "INSERT INTO " + TABLE1 + " (" + BID + ", " + BNAME + ", " + BAUTHOR + ", " + BPRICE + ", " + BDESCRIPTION + ", " + BGENRE + ") VALUES (? ,?, ?, ?, ?, ?)";
         if (ConnectToBooksDB()) {
             try {
                 PreparedStatement stmt = conn.prepareStatement(newBook);
-                stmt.setString(1, title);
-                stmt.setString(2, author);
-                stmt.setDouble(3, price);
-                stmt.setString(4, description);
-                stmt.setString(5, genre);
+                stmt.setInt(1, id);
+                stmt.setString(2, title);
+                stmt.setString(3, author);
+                stmt.setDouble(4, price);
+                stmt.setString(5, description);
+                stmt.setString(6,genre);
                 stmt.executeUpdate();
                 stmt.close();
                 //conn.close();

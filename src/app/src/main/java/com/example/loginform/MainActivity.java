@@ -3,6 +3,7 @@ package com.example.loginform;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -28,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private static String DBName = "appdatabase.db";
     private String dbPath;
     private DatabaseHandler databaseHandler;
-    private ArrayList<User> userList;
-
-    // Copy these two lines to the activities which
-    // require access to the database
 
 
     @Override
@@ -51,7 +48,18 @@ public class MainActivity extends AppCompatActivity {
 
                     dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
                     databaseHandler = new DatabaseHandler(dbPath);
+
                     if(databaseHandler.isUser(user_email.getText().toString(), user_password.getText().toString())){
+
+                        User user = databaseHandler.getByUserEmail(user_email.getText().toString());
+                        SharedPreferences preferences = getSharedPreferences("SharedPreference", MODE_PRIVATE);
+
+                        if (user != null) {
+                            SharedPreferences.Editor edit = preferences.edit();
+                            edit.putString("email", user_email.getText().toString());
+                            edit.commit();
+                        }
+
                         Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this,welcome_page.class);
                         startActivity(intent);

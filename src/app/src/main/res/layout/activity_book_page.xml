@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
         android:layout_marginTop="36dp"
-        android:text="Buy"
+        android:text="Buy Now"
         app:layout_constraintEnd_toStartOf="@+id/addToCart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -48,7 +48,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="116dp"
-        android:text="Cart"
+        android:text="Add to Cart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buy_now"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="173dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="173dp"
         android:gravity="center_vertical"
         android:text="About the Book"
@@ -66,6 +66,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -78,5 +79,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_Title" />
+
+    <Button
+        android:id="@+id/watchList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="159dp"
+        android:text="Add to Watchlist"
+        app:layout_constraintBottom_toTopOf="@+id/description_Title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buy_now" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
