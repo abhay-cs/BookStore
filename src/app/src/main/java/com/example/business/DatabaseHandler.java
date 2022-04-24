@@ -4,6 +4,7 @@ import com.example.objects.Book;
 import com.example.objects.User;
 
 import com.example.persistence.BooksDB;
+import com.example.persistence.CartsDB;
 import com.example.persistence.UsersDB;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class DatabaseHandler
 {
     private BooksDB booksDB;
     private UsersDB usersDB;
+    private CartsDB cartsDB;
 
     public DatabaseHandler(String dbPath)
     {
@@ -20,9 +22,12 @@ public class DatabaseHandler
         booksDB.CreateDB();
         usersDB = new UsersDB(dbPath);
         usersDB.CreateDB();
+        cartsDB = new CartsDB(dbPath);
+        cartsDB.CreateDB();
     }
 
-    public boolean addListBook(Book [] bookList){
+    public boolean addListBook(Book [] bookList)
+    {
         boolean flag = false;
         for (int i = 0; i< bookList.length ;i++){
             flag = addBookHelper(bookList[i]) ;
@@ -34,11 +39,15 @@ public class DatabaseHandler
         return booksDB.ResetDB();
     }
 
+    public boolean ResetCartsDB() {
+        return cartsDB.ResetDB();
+    }
+
     public boolean ResetUsersDB() {
         return usersDB.ResetDB();
     }
-    public boolean addBookHelper(Book book){
-
+    public boolean addBookHelper(Book book)
+    {
         return addBook(book.getBookTitle(),book.getAuthor(),book.getPrice(),book.getDescription(),book.getGenre());
     }
     public boolean addBook(String name, String author, Double price, String description, String genre)
@@ -48,8 +57,16 @@ public class DatabaseHandler
         }
         if(!name.equals("") && !author.equals("") && !price.equals("") && price > 0 && !description.equals("") && !genre.equals(""))
         {
-            booksDB.InsertBook(name, author, price, description, genre);
-            return true;
+            return booksDB.InsertBook(name, author, price, description, genre);
+        }
+        return false;
+    }
+
+    public boolean addToCart(int bID, int uID)
+    {
+        if(bID > -1 && uID > -1)
+        {
+            return cartsDB.InsertToCart(bID, uID);
         }
         return false;
     }
@@ -58,13 +75,13 @@ public class DatabaseHandler
     {
         if(!fName.equals("") && !lName.equals("") && !email.equals("") && !password.equals("") )
         {
-            usersDB.InsertUser(fName, lName, email, password);
-            return true;
+            return usersDB.InsertUser(fName, lName, email, password);
         }
         return false;
     }
 
-    public ArrayList<Book> search(String searchVal){
+    public ArrayList<Book> search(String searchVal)
+    {
         ArrayList <Book> bookList = getBooks();
         ArrayList <Book>  searchResults = new ArrayList<>();
         //store all related search in array found books
@@ -79,7 +96,8 @@ public class DatabaseHandler
         return searchResults;
     }
 
-    public ArrayList<String> getNames(ArrayList <Book> bookList){
+    public ArrayList<String> getNames(ArrayList <Book> bookList)
+    {
         ArrayList <String> temp = new ArrayList<>();
 
         for (int i =0 ;i< bookList.size();i++){
@@ -98,6 +116,37 @@ public class DatabaseHandler
         }
         return null;
     }
+
+    public ArrayList<Book> getCart(int uID)
+    {
+        ArrayList<Book> books;
+        ArrayList<Integer> bIDs;
+        ArrayList<Book> retBooks = new ArrayList<Book>();
+
+        if(cartsDB != null && booksDB != null)
+        {
+            bIDs = cartsDB.GetCartFromUser(uID);
+            books = booksDB.GetBooks();
+
+            for(int i = 0; i < books.size(); i++)
+            {
+                Book tempBook = books.get(i);
+
+                for(int j = 0; j < bIDs.size(); j++)
+                {
+                    if(tempBook.getID() == bIDs.get(j))
+                    {
+                        retBooks.add(tempBook);
+                    }
+                }
+            }
+
+            return retBooks;
+        }
+
+        return null;
+    }
+
     public boolean isUser(String email, String password){
 
         ArrayList<User> users = getUsers();
@@ -118,6 +167,7 @@ public class DatabaseHandler
         }
         return null;
     }
+
     public boolean duplicate(String title){
         ArrayList <Book> bookList = getBooks();
 
