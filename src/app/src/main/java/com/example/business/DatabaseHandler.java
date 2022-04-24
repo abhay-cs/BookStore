@@ -52,12 +52,13 @@ public class DatabaseHandler
     }
     public boolean addBook(String name, String author, Double price, String description, String genre)
     {
+        int id = getBookMaxId() + 1;
         if (duplicate(name)){
             return false;
         }
         if(!name.equals("") && !author.equals("") && !price.equals("") && price > 0 && !description.equals("") && !genre.equals(""))
         {
-            return booksDB.InsertBook(name, author, price, description, genre);
+            return booksDB.InsertBook(id, name, author, price, description, genre);
         }
         return false;
     }
@@ -73,9 +74,10 @@ public class DatabaseHandler
 
     public boolean addUser(String fName, String lName, String email, String password)
     {
+        int id = getUserMaxId() + 1;
         if(!fName.equals("") && !lName.equals("") && !email.equals("") && !password.equals("") )
         {
-            return usersDB.InsertUser(fName, lName, email, password);
+            return usersDB.InsertUser(id,fName, lName, email, password);
         }
         return false;
     }
@@ -190,8 +192,10 @@ public class DatabaseHandler
     public void emptyBooks(){
         booksDB.deleteAllBooks();
     }
+    public void emptyCarts(){ cartsDB.ResetDB();}
+    public void emptyUsers(){usersDB.ResetDB();}
 
-    public Book getById(String id){
+    public Book getBookById(String id){
         int bId = Integer.parseInt(id);
         Book temp = null;
 
@@ -202,5 +206,40 @@ public class DatabaseHandler
             }
         }
         return temp;
+    }
+
+    public User getByUserEmail(String email){
+        User user = null;
+        ArrayList<User> userList = getUsers();
+
+        for (int i = 0;i< userList.size();i++){
+            if (userList.get(i).getEmailID().equals(email)){
+                user = userList.get(i);
+                break;
+            }
+        }
+        return user;
+    }
+
+    public int getBookMaxId(){
+        int count = -1;
+        ArrayList<Book> bookArrayList = getBooks();
+        for (int i = 0; i< bookArrayList.size();i++){
+            if (bookArrayList.get(i).getID()>count){
+                count = bookArrayList.get(i).getID();
+            }
+        }
+        return count;
+    }
+
+    public int getUserMaxId(){
+        int count = -1;
+        ArrayList<User> userArrayList = getUsers();
+        for (int i = 0; i< userArrayList.size();i++){
+            if (userArrayList.get(i).getUserId()>count){
+                count = userArrayList.get(i).getUserId();
+            }
+        }
+        return count;
     }
 }

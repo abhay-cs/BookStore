@@ -19,7 +19,6 @@ public class signup_page extends AppCompatActivity {
     private EditText user_password;
     private Button signup;
     private DatabaseHandler databaseHandler;
-    private static String DBName = "appdatabase.db";
     private String dbPath;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

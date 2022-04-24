@@ -1,7 +1,7 @@
 
 package com.example.persistence;
 
-import com.example.loginform.BuildConfig;
+
 import com.example.objects.Book;
 import com.example.objects.User;
 import java.sql.*;
@@ -117,16 +117,17 @@ public class UsersDB
         return false;
     }
 
-    public boolean InsertUser(String firstName, String lastName, String email, String password)
+    public boolean InsertUser(int id, String firstName, String lastName, String email, String password)
     {
-        String newBook = "INSERT INTO " + TABLE2 + " (" + UFNAME + ", " + ULNAME + ", " + UEMAIL + ", " + UPASSWORD + ") VALUES (?, ?, ?, ?)";
+        String newBook = "INSERT INTO " + TABLE2 + " (" + UID + ", "+ UFNAME + ", " + ULNAME + ", " + UEMAIL + ", " + UPASSWORD + ") VALUES (?, ?, ?, ?, ?)";
         if (ConnectToUsersDB()) {
             try {
                 PreparedStatement stmt = conn.prepareStatement(newBook);
-                stmt.setString(1, firstName);
-                stmt.setString(2, lastName);
-                stmt.setString(3, email);
-                stmt.setString(4, password);
+                stmt.setInt(1, id);
+                stmt.setString(2, firstName);
+                stmt.setString(3, lastName);
+                stmt.setString(4, email);
+                stmt.setString(5,password);
                 stmt.executeUpdate();
                 stmt.close();
                 //conn.close();
