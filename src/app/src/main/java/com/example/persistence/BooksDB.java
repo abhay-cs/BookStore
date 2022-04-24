@@ -31,11 +31,13 @@ public class BooksDB
 
     private boolean ConnectToBooksDB()
     {
-        try {
+        try
+        {
             DriverManager.registerDriver((Driver) Class.forName("org.hsqldb.jdbcDriver").newInstance());
             conn = DriverManager.getConnection("jdbc:hsqldb:file:"  + dbPath + ";hsqldb.lock_file=false;shutdown=true", "SA", "");
-        } catch (Exception e){
-            //Log.e("SAMIT", "Unable to connect. Error: " + e.getMessage());
+        }
+        catch (Exception e)
+        {
             System.out.println("Connection error: " + e.getMessage());
             return false;
         }
@@ -86,10 +88,12 @@ public class BooksDB
     public boolean ResetDB() {
         if (ConnectToBooksDB()) {
             try {
-                Statement stmt = conn.createStatement();
-                stmt.executeUpdate("DELETE FROM " + TABLE1);
-                stmt.close();
-                conn.close();
+                if (tableExist(conn, TABLE1)) {
+                    Statement stmt = conn.createStatement();
+                    stmt.executeUpdate("DELETE FROM " + TABLE1);
+                    stmt.close();
+                    conn.close();
+                }
             } catch (Exception e) {
                 System.out.println("DB Reset error: " + e.getMessage());
                 return false;
