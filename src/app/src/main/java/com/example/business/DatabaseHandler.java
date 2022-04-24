@@ -57,18 +57,16 @@ public class DatabaseHandler
         }
         if(!name.equals("") && !author.equals("") && !price.equals("") && price > 0 && !description.equals("") && !genre.equals(""))
         {
-            booksDB.InsertBook(name, author, price, description, genre);
-            return true;
+            return booksDB.InsertBook(name, author, price, description, genre);
         }
         return false;
     }
 
     public boolean addToCart(int bID, int uID)
     {
-        if(bID > 0 && uID > 0)
+        if(bID > -1 && uID > -1)
         {
-            cartsDB.InsertToCart(bID, uID);
-            return true;
+            return cartsDB.InsertToCart(bID, uID);
         }
         return false;
     }
@@ -77,8 +75,7 @@ public class DatabaseHandler
     {
         if(!fName.equals("") && !lName.equals("") && !email.equals("") && !password.equals("") )
         {
-            usersDB.InsertUser(fName, lName, email, password);
-            return true;
+            return usersDB.InsertUser(fName, lName, email, password);
         }
         return false;
     }
@@ -137,7 +134,7 @@ public class DatabaseHandler
 
                 for(int j = 0; j < bIDs.size(); j++)
                 {
-                    if(tempBook.getID() == bIDs.get(j));
+                    if(tempBook.getID() == bIDs.get(j))
                     {
                         retBooks.add(tempBook);
                     }
@@ -170,6 +167,7 @@ public class DatabaseHandler
         }
         return null;
     }
+
     public boolean duplicate(String title){
         ArrayList <Book> bookList = getBooks();
 

@@ -93,12 +93,17 @@ public class UnitTest
         assert (db!=null);
         writeBooks();
         writeUsers();
+        assert(db.getUsers().size() == 2);
+
         writeCart();
+        assert(db.getUsers().size() == 2);
+        checkCart();
     }
 
     public void checkCart()
     {
-        Book bookA = new Book(1, "Book A", "Lazy Panther", 10.99, "This is the first book.", "Mystery");
+        Book bookA = new Book(0, "Book A", "Lazy Panther", 10.99, "This is the first book.", "Mystery");
+        Book bookB = new Book(1, "Book B", "Smart Tiger", 21.99, "This is the second book.", "Magic");
 
         DatabaseHandler db;
         db = new DatabaseHandler("/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM");
@@ -114,7 +119,12 @@ public class UnitTest
         assert(users.size() == 2);
 
         ArrayList<Book> cartBooks =  db.getCart(1);
-        assert(cartBooks.get(0).equals(bookA));
+        assert(cartBooks.get(0).getBookTitle().equals(bookA.getBookTitle()));
+        assert(cartBooks.get(0).getAuthor().equals(bookA.getAuthor()));
+        assert(cartBooks.get(1).getBookTitle().equals(bookB.getBookTitle()));
+        assert(cartBooks.get(1).getAuthor().equals(bookB.getAuthor()));
+        assert(cartBooks.get(0).getBookTitle().equals(bookA.getBookTitle()));
+        assert(cartBooks.get(0).getBookTitle().equals(bookA.getBookTitle()));
     }
 
     public void writeCart()
@@ -129,15 +139,15 @@ public class UnitTest
 
         Boolean bInserted = false;
 
+        bInserted = db.addToCart(0,1);
+        assert(bInserted != false);
         bInserted = db.addToCart(1,1);
         assert(bInserted != false);
-        bInserted = db.addToCart(2,1);
+        bInserted = db.addToCart(0,2);
         assert(bInserted != false);
         bInserted = db.addToCart(1,2);
         assert(bInserted != false);
         bInserted = db.addToCart(2,2);
-        assert(bInserted != false);
-        bInserted = db.addToCart(3,2);
         assert(bInserted != false);
     }
 
@@ -162,6 +172,7 @@ public class UnitTest
 
         bInserted = db.addUser(newUser2.getFirstName(), newUser2.getLastName(), newUser2.getEmailID(), newUser2.getPassword());
         assert(bInserted != false);
+        assert(db.getUsers().size() == 2);
     }
 
     public void writeBooks()
