@@ -29,10 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private static String DBName = "appdatabase.db";
     private String dbPath;
     private DatabaseHandler databaseHandler;
-    private ArrayList<User> userList;
-
-    // Copy these two lines to the activities which
-    // require access to the database
 
 
     @Override

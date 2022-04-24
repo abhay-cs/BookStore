@@ -32,6 +32,9 @@ public class BookPage extends AppCompatActivity {
         String bookId = intent.getExtras().getString("Book name");
         Book book = databaseHandler.getBookById(bookId);
 
+        SharedPreferences sh = getSharedPreferences("SharedPreference", Context.MODE_PRIVATE);
+        String email = sh.getString("email", "");
+
         final TextView titletext = findViewById(R.id.book_name);
         titletext.setText(book.getBookTitle());
 
@@ -54,13 +57,27 @@ public class BookPage extends AppCompatActivity {
                 String toastMessage = "Item added to cart";
                 Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
 
-                SharedPreferences sh = getSharedPreferences("SharedPreference", Context.MODE_PRIVATE);
-                String email = sh.getString("email", "");
 
                 if (email != null){
                     User user = databaseHandler.getByUserEmail(email);
                     Book book = databaseHandler.getBookById(bookId);
                     databaseHandler.addToCart(book.getID(),user.getUserId());
+                }
+
+            }
+        });
+
+        Button addToWatchList = findViewById(R.id.watchList);
+        addToWatchList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String toastMessage = "Item added to watchlist";
+                Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
+
+                if (email != null){
+                    User user = databaseHandler.getByUserEmail(email);
+                    Book book = databaseHandler.getBookById(bookId);
+                    databaseHandler.addToWatchlist(book.getID(),user.getUserId());
                 }
 
             }
