@@ -3,9 +3,11 @@ package com.example.business;
 import com.example.objects.Book;
 import com.example.objects.User;
 
+import com.example.objects.Watchlist;
 import com.example.persistence.BooksDB;
 import com.example.persistence.CartsDB;
 import com.example.persistence.UsersDB;
+import com.example.persistence.WatchlistDB;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -15,6 +17,7 @@ public class DatabaseHandler
     private BooksDB booksDB;
     private UsersDB usersDB;
     private CartsDB cartsDB;
+    private WatchlistDB watchlistDB;
 
     public DatabaseHandler(String dbPath)
     {
@@ -24,6 +27,8 @@ public class DatabaseHandler
         usersDB.CreateDB();
         cartsDB = new CartsDB(dbPath);
         cartsDB.CreateDB();
+        watchlistDB =new WatchlistDB(dbPath);
+        watchlistDB.CreateDB();
     }
 
     public boolean addListBook(Book [] bookList)
@@ -142,11 +147,39 @@ public class DatabaseHandler
                     }
                 }
             }
-
             return retBooks;
         }
 
-        return null;
+        return retBooks;
+    }
+
+    public ArrayList<Book> getWatchlist(int uID)
+    {
+        ArrayList<Book> books;
+        ArrayList<Integer> bIDs;
+        ArrayList<Book> retBooks = new ArrayList<Book>();
+
+        if(watchlistDB != null && booksDB != null)
+        {
+            bIDs = watchlistDB.GetWatchlistFromUser(uID);
+            books = booksDB.GetBooks();
+
+            for(int i = 0; i < books.size(); i++)
+            {
+                Book tempBook = books.get(i);
+
+                for(int j = 0; j < bIDs.size(); j++)
+                {
+                    if(tempBook.getID() == bIDs.get(j))
+                    {
+                        retBooks.add(tempBook);
+                    }
+                }
+            }
+            return retBooks;
+        }
+
+        return retBooks;
     }
 
     public boolean isUser(String email, String password){
@@ -189,9 +222,9 @@ public class DatabaseHandler
         return temp;
 
     }
-    public void emptyBooks(){
-        booksDB.deleteAllBooks();
-    }
+//    public void emptyBooks(){
+//        booksDB.deleteAllBooks();
+//    }
     public void emptyCarts(){ cartsDB.ResetDB();}
     public void emptyUsers(){usersDB.ResetDB();}
 
@@ -242,5 +275,12 @@ public class DatabaseHandler
         }
         return count;
     }
-
+    public boolean addToWatchlist(int bID, int uID)
+    {
+        if(bID > -1 && uID > -1)
+        {
+            return watchlistDB.InsertToWishlist(bID, uID);
+        }
+        return false;
+    }
 }
