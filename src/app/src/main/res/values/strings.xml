@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login Form</string>
+    <string name="app_name">The Book Store</string>
     <string name="hello">Hello!</string>
     <string name="username">username</string>
     <string name="login">Login</string>

@@ -10,22 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginForm">
         <activity
-            android:name="com.uom.thebookstore.ui.BuyPage"
+            android:name=".UserProfile"
             android:exported="true" />
         <activity
-            android:name="com.uom.thebookstore.ui.BookPage"
+            android:name=".OrdersPage"
             android:exported="true" />
         <activity
-            android:name="com.uom.thebookstore.ui.SearchResultActivity"
+            android:name=".BuyPage"
+            android:exported="true" />
+        <activity
+            android:name=".BookPage"
+            android:exported="true" />
+        <activity
+            android:name=".SearchResultActivity"
             android:exported="false" />
         <activity
-            android:name="com.uom.thebookstore.ui.welcome_page"
+            android:name=".welcome_page"
             android:exported="true" />
         <activity
-            android:name="com.uom.thebookstore.ui.signup_page"
+            android:name=".signup_page"
             android:exported="true" />
         <activity
-            android:name="com.uom.thebookstore.ui.start_page"
+            android:name=".start_page"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +40,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.uom.thebookstore.ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
 
         <meta-data

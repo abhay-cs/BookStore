@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrdersPage">
+
+
+
+
+    <GridView
+        android:id="@+id/gridviewWatchlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="50dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:layout_marginTop="60dp"
+        android:numColumns="1"
+        android:scaleX="1.0"
+        android:scaleY="1.0"
+        android:verticalSpacing="24dp" />
+
+    <TextView
+        android:id="@+id/orderPageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="179dp"
+        android:text="Orders"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
