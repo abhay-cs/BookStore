@@ -86,6 +86,29 @@ public class CartsDB
         return false;
     }
 
+    public boolean ChangeStatus(int bID, int uID, boolean status)
+    {
+        String updateStatus = "UPDATE " + TABLE3 + " SET " + CSTATUS + " = ? WHERE UID = ? AND BID = ?";
+        if (ConnectToCartsDB()) {
+            try {
+                PreparedStatement stmt = conn.prepareStatement(updateStatus);
+                stmt.setBoolean(1, status); // false to remove it from the cart
+                stmt.setInt(2, uID);
+                stmt.setInt(3, bID);
+                stmt.executeUpdate();
+                stmt.close();
+                //conn.close();
+            }
+            catch (Exception e)
+            {
+                //Log.e(TAG, "Unable to insert data. Error: " + e.getMessage());
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
     public boolean InsertToCart(int bID, int uID)
     {
         String newCartItem = "INSERT INTO " + TABLE3 + " (" + UID + ", " + BID + ", " + CSTATUS + ") VALUES (?, ?, ?)";
