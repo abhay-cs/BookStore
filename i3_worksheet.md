@@ -28,7 +28,8 @@ Acceptance test/end-to-end
 So for one of the end to end tests we tested the account creation feature where they would click to sign up then enter a user name and password. Once they have created the account we would sign out by exiting the application and then check if the account creation was stored and working by resigning into the app with the new account.
 It isn't flaky because our login/sign up will always have the same steps to complete and the database will always have a record of all accounts made from the very beginning till now and we aren't deleting accounts so the tests should always work.
 
-Link: src/app/src/androidTest/java/com/uom/thebookstore/ui/AcceptanceTestLoginRegister.java
+Link: https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/commit/00d72b818bc300de08dd4dabe760c599065ac009#f15dead2afe8d3e874e4b89de4da9288c3fb296e
+File Path: src/app/src/androidTest/java/com/uom/thebookstore/ui/AcceptanceTestLoginRegister.java
 
 Acceptance test, untestable
 ===============
