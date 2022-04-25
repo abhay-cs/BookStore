@@ -13,7 +13,11 @@ import com.uom.thebookstore.objects.Book;
 public class BuyPage extends AppCompatActivity {
     private String dbPath;
     private DatabaseHandler databaseHandler;
+<<<<<<< HEAD
     private Button buy_btn;
+=======
+
+>>>>>>> newBranch
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,20 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".BuyPage">
 
-    <Button
-        android:id="@+id/buybutton"
-        android:layout_width="206dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="246dp"
-        android:layout_marginEnd="246dp"
-        android:layout_marginBottom="60dp"
-        android:text="Buy"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <GridView
         android:id="@+id/gridviewBuyPage"
         android:layout_width="599dp"
@@ -34,6 +20,9 @@
         android:verticalSpacing="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </GridView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

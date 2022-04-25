@@ -66,7 +66,7 @@ public class BooksDB
                 Statement stmt = conn.createStatement();
                 stmt.executeUpdate("TRUNCATE TABLE " + TABLE1 + " RESTART IDENTITY");
                 stmt.close();
-                //conn.close();
+                conn.close();
 
             } catch (Exception e) {
                 System.out.println("DB Reset error: " + e.getMessage());

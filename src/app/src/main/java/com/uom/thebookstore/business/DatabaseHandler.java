@@ -220,9 +220,9 @@ public class DatabaseHandler
         return temp;
 
     }
-//    public void emptyBooks(){
-//        booksDB.deleteAllBooks();
-//    }
+    public void emptyBooks(){
+        booksDB.deleteAllBooks();
+    }
     public void emptyCarts(){ cartsDB.ResetDB();}
     public void emptyUsers(){usersDB.ResetDB();}
 
@@ -281,4 +281,19 @@ public class DatabaseHandler
         }
         return false;
     }
+
+    public Book[] getOrders(User user){
+        Book[] orderList;
+
+        ArrayList<Integer> booksId =  cartsDB.GetCartFromUser(user.getUserId());
+        orderList = new Book[booksId.size()];
+
+        for (int i =0;i<booksId.size();i++){
+            Book temp = getBookById(booksId.get(i) + "");
+            orderList[i] = temp;
+        }
+        return orderList;
+    }
+
+
 }

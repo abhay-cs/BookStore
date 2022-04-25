@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.uom.thebookstore.business.DatabaseHandler;
@@ -19,6 +20,7 @@ public class BookPage extends AppCompatActivity {
     private String dbPath;
     private DatabaseHandler databaseHandler;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +31,19 @@ public class BookPage extends AppCompatActivity {
 
         Intent intent = getIntent();
         String bookId = intent.getExtras().getString("Book name");
+
         Book book = databaseHandler.getBookById(bookId);
 
         SharedPreferences sh = getSharedPreferences("SharedPreference", Context.MODE_PRIVATE);
         String email = sh.getString("email", "");
 
         final TextView titletext = findViewById(R.id.book_name);
-        titletext.setText(book.getBookTitle());
+        String text = book.getBookTitle() + " $" + book.getPrice();
+        titletext.setText(text);
+
+        final TextView description = findViewById(R.id.description_Title);
+        description.setText(book.getDescription());
+
 
         final TextView desciption = findViewById(R.id.book_description);
         titletext.setText(book.getDescription());
@@ -88,4 +96,5 @@ public class BookPage extends AppCompatActivity {
             }
         });
     }
+
 }
