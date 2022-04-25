@@ -16,3 +16,6 @@ A list of some things that we have come up with that we will be satisfied with a
 4. All our completed user stories have an acceptance test
 
 5. All of the tests pass
+
+
+![Velocity Chart](bar-graph.png "Velocity Chart")
