@@ -3,6 +3,7 @@ package com.uom.thebookstore.ui;
 import static androidx.test.core.app.ApplicationProvider.getApplicationContext;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -37,7 +38,7 @@ public class UserFragment extends Fragment {
         SharedPreferences sh = getContext().getSharedPreferences("SharedPreference", Context.MODE_PRIVATE);
         String email = sh.getString("email", "");
 
-        String[] userProfileList = {"Orders","Account","\tEmail: "+email, "\tName: "+databaseHandler.getByUserEmail(email).getFirstName() +" "+databaseHandler.getByUserEmail(email).getLastName()};
+        String[] userProfileList = {"Orders","Email: "+email, "Name: "+databaseHandler.getByUserEmail(email).getFirstName() +" "+databaseHandler.getByUserEmail(email).getLastName()};
 
         ListView listView = (ListView) view.findViewById(R.id.userProfile);
 
@@ -48,18 +49,17 @@ public class UserFragment extends Fragment {
         );
         listView.setAdapter(listViewAdapter);
 //
-//        listView.setClickable(true);
+        listView.setClickable(true);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0){
-                    String toastMessage = "orders";
-                    Toast.makeText(getContext(), toastMessage, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(),OrdersPage.class);
+                    startActivity(intent);
                 }
 
             }
         });
-
         return view;
     }
 }

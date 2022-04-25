@@ -12,12 +12,7 @@ import com.uom.thebookstore.objects.Book;
 public class BuyPage extends AppCompatActivity {
     private String dbPath;
     private DatabaseHandler databaseHandler;
-    private String tutorials[]
-            = { "Algorithms", "Data Structures",
-            "Languages", "Interview Corner",
-            "GATE", "ISRO CS",
-            "UGC NET CS", "CS Subjects",
-            "Web Technologies" };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

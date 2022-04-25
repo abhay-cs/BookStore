@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.uom.thebookstore.business.DatabaseHandler;
@@ -18,6 +19,7 @@ import com.uom.thebookstore.objects.User;
 public class BookPage extends AppCompatActivity {
     private String dbPath;
     private DatabaseHandler databaseHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,12 @@ public class BookPage extends AppCompatActivity {
         String email = sh.getString("email", "");
 
         final TextView titletext = findViewById(R.id.book_name);
-        titletext.setText(book.getBookTitle());
+        String text = book.getBookTitle() + " $" + book.getPrice();
+        titletext.setText(text);
+
+        final TextView description = findViewById(R.id.description_Title);
+        description.setText(book.getDescription());
+
 
         //check when buy now button button is clicked
         Button buyButton = findViewById(R.id.buy_now);
@@ -83,4 +90,5 @@ public class BookPage extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -7,10 +7,8 @@
     tools:context=".OrdersPage">
 
 
-
-
     <GridView
-        android:id="@+id/gridviewWatchlist"
+        android:id="@+id/gridViewOrder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="50dp"

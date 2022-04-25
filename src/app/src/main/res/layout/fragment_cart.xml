@@ -13,17 +13,19 @@
         android:text="Cart"
         android:textSize="30dp"
         android:gravity="center"/>
+
     <GridView
         android:id="@+id/gridviewCart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:columnWidth="50dp"
         android:gravity="center"
         android:horizontalSpacing="5dp"
-        android:layout_marginTop="60dp"
         android:numColumns="1"
         android:scaleX="1.0"
         android:scaleY="1.0"
         android:verticalSpacing="24dp" />
+
 
 </FrameLayout>

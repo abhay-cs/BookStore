@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.SearchView;
 
@@ -76,7 +77,8 @@ public class HomeFragment extends Fragment
         dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
         databaseHandler = new DatabaseHandler(dbPath);
 
-        databaseHandler.ResetBooksDB();
+
+
         for(int i = 0; i < books.length; i++)
         {
             databaseHandler.addBook(books[i].getBookTitle(), books[i].getAuthor(), books[i].getPrice(), books[i].getDescription(), books[i].getGenre());
@@ -86,6 +88,7 @@ public class HomeFragment extends Fragment
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         SearchView searchView = (SearchView)view.findViewById(R.id.searchViewBar);
+
 
         //GridView //
         GridView gridView = (GridView)view.findViewById(R.id.gridviewBuyPage);
