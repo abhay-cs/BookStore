@@ -164,7 +164,38 @@ public class CartsDB
 
                 while (rs.next())
                 {
-                    if(rs.getInt(UID) == uID)
+                    if(rs.getInt(UID) == uID && rs.getBoolean(CSTATUS) == true)
+                    {
+                        bookIDs.add(rs.getInt(BID));
+                    }
+                }
+
+                stmt.close();
+
+            } catch (Exception e) {
+                //Log.e(TAG, "Unable to get users. Error: " + e.getMessage());
+                return null;
+            }
+        }
+
+        return bookIDs;
+    }
+
+    public ArrayList<Integer> GetOrdersFromUser(int uID)
+    {
+        ArrayList<Integer> bookIDs = new ArrayList<Integer>();
+        String getBooks = "SELECT * FROM carts;";
+
+        if (ConnectToCartsDB())
+        {
+            try
+            {
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery(getBooks);
+
+                while (rs.next())
+                {
+                    if(rs.getInt(UID) == uID && rs.getBoolean(CSTATUS) == false)
                     {
                         bookIDs.add(rs.getInt(BID));
                     }
