@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment
         dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
         databaseHandler = new DatabaseHandler(dbPath);
 
-        databaseHandler.ResetBooksDB();
+
         for(int i = 0; i < books.length; i++)
         {
             databaseHandler.addBook(books[i].getBookTitle(), books[i].getAuthor(), books[i].getPrice(), books[i].getDescription(), books[i].getGenre());

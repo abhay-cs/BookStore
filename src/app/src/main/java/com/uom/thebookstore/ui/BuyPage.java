@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.uom.thebookstore.business.DatabaseHandler;
@@ -12,12 +13,7 @@ import com.uom.thebookstore.objects.Book;
 public class BuyPage extends AppCompatActivity {
     private String dbPath;
     private DatabaseHandler databaseHandler;
-    private String tutorials[]
-            = { "Algorithms", "Data Structures",
-            "Languages", "Interview Corner",
-            "GATE", "ISRO CS",
-            "UGC NET CS", "CS Subjects",
-            "Web Technologies" };
+    private Button buy_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +33,7 @@ public class BuyPage extends AppCompatActivity {
 
         GridView gridView = findViewById(R.id.gridviewBuyPage);
         gridView.setAdapter(booksAdapter);
+
 
 
     }
