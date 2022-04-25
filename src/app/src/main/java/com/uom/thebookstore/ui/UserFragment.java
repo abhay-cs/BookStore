@@ -26,7 +26,7 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-        String[] userProfileList = {"Settings", "Orders","Account"};
+        String[] userProfileList = {"Orders","Account"};
 
         ListView listView = (ListView) view.findViewById(R.id.userProfile);
 
@@ -36,6 +36,9 @@ public class UserFragment extends Fragment {
                 userProfileList
         );
         listView.setAdapter(listViewAdapter);
+
+
+
 
         return view;
     }
