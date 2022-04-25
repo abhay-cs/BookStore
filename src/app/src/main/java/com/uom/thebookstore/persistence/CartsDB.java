@@ -89,6 +89,7 @@ public class CartsDB
     public boolean InsertToCart(int bID, int uID)
     {
         String newCartItem = "INSERT INTO " + TABLE3 + " (" + UID + ", " + BID + ", " + CSTATUS + ") VALUES (?, ?, ?)";
+
         if (ConnectToCartsDB()) {
             try {
                 PreparedStatement stmt = conn.prepareStatement(newCartItem);

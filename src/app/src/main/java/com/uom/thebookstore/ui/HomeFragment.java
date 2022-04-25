@@ -22,9 +22,9 @@ public class HomeFragment extends Fragment
     private String dbPath;
     private DatabaseHandler databaseHandler;
 
-    private Book[] books = {new Book(1,"Harry Potter 1", "Jk",7.22, "Goof Book","Horror"),
-            new Book(2,"Harry Potter 2", "Walter",5.99, "sample","Fiction"),
-            new Book(3,"Harry Potter 3", "Jk",12.22, "Goof Book","Horror"),
+    private Book[] books = {new Book(1,"Things Fall Apart", "Jk",7.22, "Goof Book","Horror"),
+            new Book(2,"Pride and Prejudice", "Walter",5.99, "sample","Fiction"),
+            new Book(3,"Nineteen Eighty-Four", "Jk",12.22, "Goof Book","Horror"),
             new Book(4,"Harry Potter 4", "Jk",15.22, "Goof Book","Horror"),
             new Book(5,"Harry Potter 5", "Jk",5.22, "Goof Book","Horror"),
             new Book(6,"Harry Potter 6", "Jk",787.22, "Goof Book","Horror"),
@@ -50,17 +50,11 @@ public class HomeFragment extends Fragment
         dbPath = "/data/data/" + BuildConfig.APPLICATION_ID + "/databases/UOM";
         databaseHandler = new DatabaseHandler(dbPath);
 
+        databaseHandler.ResetBooksDB();
         for(int i = 0; i < books.length; i++)
         {
             databaseHandler.addBook(books[i].getBookTitle(), books[i].getAuthor(), books[i].getPrice(), books[i].getDescription(), books[i].getGenre());
         }
-
-//       databaseHandler.emptyBooks();
-
-////        adding lists of books in database
-//        if (databaseHandler.addListBook(books)){
-//            Toast.makeText(getActivity(), "Successfully added", Toast.LENGTH_LONG).show();
-//        }
 
         ArrayList <Book> books = databaseHandler.getBooks();
 
