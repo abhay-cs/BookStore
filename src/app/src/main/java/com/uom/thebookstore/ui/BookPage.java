@@ -45,12 +45,6 @@ public class BookPage extends AppCompatActivity {
         description.setText(book.getDescription());
 
 
-        final TextView desciption = findViewById(R.id.book_description);
-        titletext.setText(book.getDescription());
-
-        final TextView price_item = findViewById(R.id.price_item);
-        titletext.setText("$ " + book.getPrice());
-
         //check when buy now button button is clicked
         Button buyButton = findViewById(R.id.buy_now);
         buyButton.setOnClickListener(new View.OnClickListener() {
