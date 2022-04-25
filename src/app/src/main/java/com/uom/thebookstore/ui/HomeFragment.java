@@ -15,7 +15,6 @@ import com.uom.thebookstore.objects.Book;
 
 import java.util.ArrayList;
 
-
 public class HomeFragment extends Fragment
 {
     private static String DBName = "appdatabase.db";
@@ -65,8 +64,7 @@ public class HomeFragment extends Fragment
             new Book(26,"To the Lighthouse","Virginia Woolf",14.00,"The novel recalls childhood emotions and highlights adult relationships. Among the book's many tropes and themes are those of loss, subjectivity, the nature of art and the problem of perception.","Fiction"),
             new Book(27,"Midnight's Children","Salman Rushdie",14.95,"It portrays India's transition from the British colonial rule to the independence and the partition of India.","Fiction")};
 
-    public HomeFragment()
-    {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
