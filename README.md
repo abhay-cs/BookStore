@@ -16,8 +16,7 @@ The Branching strategy that we have chosen to do github flow. Our group has impl
 
 # Worksheet 1
 
-[Link to worksheet 1](https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/blob/master/i1_worksheet.md)
+[Link to the worksheet](https://docs.google.com/document/d/1b5qIC5rlM-qDKNSs-HqeDTQn1nqpdXgz8bW3iK1XLaY/edit?usp=sharing)
 
-# Worksheet 2
-
-[Link to worksheet 2](https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/blob/master/i2_Worksheet.md)
+# Architecture
+[embed]architecture.pdf[/embed]
