@@ -15,7 +15,6 @@ import com.uom.thebookstore.objects.Book;
 
 import java.util.ArrayList;
 
-
 public class HomeFragment extends Fragment
 {
     private static String DBName = "appdatabase.db";
@@ -37,8 +36,7 @@ public class HomeFragment extends Fragment
             new Book(13,"Harry Potter 13", "Jk",71.22, "Goof Book","Horror"),
             new Book(14,"Harry Potter 14", "Jk",790.22, "Goof Book","Horror")};
 
-    public HomeFragment()
-    {
+    public HomeFragment() {
         // Required empty public constructor
     }
 

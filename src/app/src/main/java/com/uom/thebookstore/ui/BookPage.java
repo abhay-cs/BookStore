@@ -29,6 +29,7 @@ public class BookPage extends AppCompatActivity {
 
         Intent intent = getIntent();
         String bookId = intent.getExtras().getString("Book name");
+
         Book book = databaseHandler.getBookById(bookId);
 
         SharedPreferences sh = getSharedPreferences("SharedPreference", Context.MODE_PRIVATE);
