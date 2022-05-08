@@ -11,17 +11,4 @@ A **follow-up email** will also be sent to the customers after their purchase, a
 
 The project will be considered successful based on three criteria, first, it gets **increasing downloads over the course of several months**. Second, we are aiming for a **4 star rating for our application when we launch and then our ratings must not fall for consecutive periods**. Lastly, we are aiming to **sell at least 10,000 books on our application** which will make our application a top choice among enthusiasts. If all the criteria meet, our project will be considered **successful**.
 
-# Branching strategy
-The Branching strategy that we have chosen to do github flow. Our group has implemented this by having different branches that have specific uses and constantly have them updated, we do this because pushing to the server won't mess up our main code which is the master and it's better to make changes there to see how things work. Once everything runs and has no errors, we can then merge it to our master branch because one of the main processes of github flow is that everything in the master is deployable.
 
-# Worksheet 1
-
-[Link to the worksheet](https://docs.google.com/document/d/1b5qIC5rlM-qDKNSs-HqeDTQn1nqpdXgz8bW3iK1XLaY/edit?usp=sharing)
-
-# Worksheet 2
-
-[Link to worksheet 2](https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/blob/master/i2_Worksheet.md)
-
-# Worksheet 3
-
-[Link to worksheet 3](https://code.cs.umanitoba.ca/winter-2022-a01/group-7/book-ordering-system/-/blob/master/i3_worksheet.md)
