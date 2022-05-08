@@ -1,3 +1,7 @@
+# This Repository is the part of the group project from one of the courses i took at my university. This project was designed and delveloped with a team of 4 others.
+
+
+
 # Book Ordering System
 The **Book Ordering System(BOS)** will allow users to buy, sell or rent books through the app. Users will also be able to browse and find books based on their preference. In addition, the app will allow users to have an account, track transaction records and allow debit/credit card payments. Accounts created by users can either be as buyers or sellers. The primary goal of the app is to make books more accessible and cheaper for people to use.
 
