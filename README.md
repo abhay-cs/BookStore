@@ -1,4 +1,5 @@
-# This Repository is the part of the group project from one of the courses i took at my university. This project was designed and delveloped with a team of 4 others.
+# This Repository is the part of the group project from one of the courses i took at my university. 
+# This project was designed and delveloped with a team of 4 others.
 
 
 
